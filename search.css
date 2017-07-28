@@ -1,0 +1,13 @@
+body {
+    background-color: black;
+}
+
+img {
+    text-align: -webkit-center;
+    display: block;
+}
+
+form {
+    vertical-align: middle;
+    text-align: -webkit-center;
+}
