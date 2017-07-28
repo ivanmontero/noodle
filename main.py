@@ -16,39 +16,23 @@
 # - Use Bootstrap for CSS
 
 # ========================= LIBRARIES =========================
-# Core libraries
+# Core library
 import webapp2
-import os
-import sys
 import jinja2
-import logging
-# Parsing libraries
-import json
-import urllib2
-# Authentification and databasse libraries
-from google.appengine.api import users
-from google.appengine.ext import ndb
-# To allow Python to import from handlers/ folder
-# sys.path.append('/handlers')
-# Other pages
-# from handlers.index import *
-# TODO
+import os
 
-# jinja initialization
+# global jinja_environment
+global jinja_environment
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
-class MainHandler(webapp2.RequestHandler):
-    def get(self):
-        # self.response.write('Hello world!')
-        # template = jinja_environment.get_template('templates/index.html')
-        # self.response.out.write(template.render())
-        # test_function()
+# ====================== IMPORT HANDLER FILES HERE ======================
+from template import *
+from index import *
+# ====================== IMPORT HANDLER FILES HERE ======================
 
-
-
-
-
+# ========================== ADD HANDLERS HERE ==========================
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+    ('/', PleasePutYourHandlerNameHere)
 ], debug=True)
+# ========================== ADD HANDLERS HERE ==========================
