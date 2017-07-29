@@ -1,21 +1,8 @@
-# TODO:
-# - Split each website into it's own .py file
-
-# Features:
-# - About us
-# - Calendar
-# - Search (General, Photos, etc)
-# - Games
-# - Photos
-# - Checkers
-# - Social Media
-# - Blog ("The Noodle")
-# - Noodle News
+# SCRATCH ALL IDEAS
 
 # Suggestions:
 # - Use Bootstrap for CSS
 
-# ========================= LIBRARIES =========================
 # Core library
 import webapp2
 import jinja2
@@ -28,7 +15,6 @@ jinja_environment = jinja2.Environment(
 
 # ====================== IMPORT HANDLER FILES HERE ======================
 from template import *
-from index import *
 # ====================== IMPORT HANDLER FILES HERE ======================
 
 # ========================== ADD HANDLERS HERE ==========================
