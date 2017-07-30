@@ -1,0 +1,10 @@
+.parallax {
+  display: block;
+  /*z-index: 1;*/
+  height: 100%;
+
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

@@ -13,8 +13,6 @@ global jinja_environment
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
-
-
 # ====================== IMPORT HANDLER FILES HERE ======================
 from index import *
 # ====================== IMPORT HANDLER FILES HERE ======================
