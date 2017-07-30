@@ -11,8 +11,17 @@
     </head>
     <body>
         <div class="parallax" id="flying-spaghetti"> </div>
+        <div id="redirect-area">
+            <!-- SPECIFIED IN BACKWARDS ORDER (so it can match up on right side)  -->
+            <span class="redirect-item"><a class="redirect-text" href="https://www.google.com" id="sign-in-redirect">Sign In</a></span>
+            <!-- TODO: Authentification  -->
+            <span class="redirect-item"><a class="redirect-text" href="" id="wiki-redirect">Wiki</a></span>
+            <span class="redirect-item"><a class="redirect-text" href="" id="html-editor-redirect">HTML Editor</a></span>
+            <span class="redirect-item"><a class="redirect-text" href="" id="code-share-redirect">Code Share</a></span>
+            <span class="redirect-item"><a class="redirect-text" href="" id="questions-redirect">Questions</a></span>
+        </div>
         <div id="logo-upper-space">
-            <button type="button" id="sign-in">Sign in</button>
+            <!-- <button type="button" id="sign-in">Sign in</button> -->
         </div>
         <div id="logo">
             <script>renderNoodleLogo()</script>

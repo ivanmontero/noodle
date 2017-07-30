@@ -1,3 +1,5 @@
+/* COLORS  */
+/* "#A7226E","#EC2049","#F26B38","#F7DB4F","#2F9599" */
 body {
     width: 100vw;
     height: 100vh;
@@ -12,16 +14,77 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    opacity: .25;
+    opacity: .30;
     background-color: white;
     background-image: url("../img/flying_spaghetti.png");
 }
 
-#sign-in {
+#redirect-area {
     position: relative;
-    float: right;
+    /* float: right; */
     right: 1%; 
-    top: 3%;
+    top: 1%;
+    /* width: 90%; */
+}
+
+.redirect-item {
+    /* display: inline; */
+    float: right;
+    display: block;
+    /* width: 10%; */
+    padding-left: 2% ;
+    text-align: center;
+}
+
+/* Removing default <a> styling  */
+.redirect-text {
+    font-family: sans-serif;
+    font-size: 23px;
+    text-decoration: none;
+    color: black;
+    /*  Outline  */
+    /* text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; */
+    text-shadow: 0 0 1px #000000;
+}
+ 
+.redirect-text:link {
+    text-decoration: none;
+    color: black;
+}
+
+.redirect-text:visited {
+    text-decoration: none;
+    color: black;
+}
+
+.redirect-text:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.redirect-text:active {
+    text-decoration: none;
+    color: black;
+} 
+
+#questions-redirect {
+    color: #A7226E;
+}
+
+#code-share-redirect {
+    color: #EC2049
+}
+
+#html-editor-redirect {
+    color: #F26B38;
+}
+
+#wiki-redirect {
+    color: #F7DB4F;
+}
+
+#sign-in-redirect {
+    color: #2F9599;
 }
 
 #logo-upper-space {
@@ -41,5 +104,5 @@ body {
 
 .logo-char {
     font-family: sans-serif;
-    font-size: 75px;
+    font-size: 100px;
 }
