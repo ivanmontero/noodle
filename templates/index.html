@@ -3,22 +3,23 @@
     <head>
         <title>Noodle</title>
         <!-- Bootstrap -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
-            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
         <link rel="stylesheet" href="/res/css/index.css">
         <link rel="stylesheet" href="/res/css/parallax.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="res/js/index.js"></script>
     </head>
     <body>
         <div class="parallax" id="flying-spaghetti"> </div>
         <div id="redirect-area">
             <!-- SPECIFIED IN BACKWARDS ORDER (so it can match up on right side)  -->
-            <span class="redirect-item"><a class="redirect-text" href="https://www.google.com" id="sign-in-redirect">Sign In</a></span>
+            <span class="redirect-item hvr-bounce-in"><a class="redirect-text" href="https://www.google.com" id="sign-in-redirect">Sign In</a></span>
             <!-- TODO: Authentification  -->
-            <span class="redirect-item"><a class="redirect-text" href="" id="wiki-redirect">Wiki</a></span>
-            <span class="redirect-item"><a class="redirect-text" href="" id="html-editor-redirect">HTML Editor</a></span>
-            <span class="redirect-item"><a class="redirect-text" href="" id="code-share-redirect">Code Share</a></span>
-            <span class="redirect-item"><a class="redirect-text" href="" id="questions-redirect">Questions</a></span>
+            <span class="redirect-item hvr-bounce-in"><a class="redirect-text" href="/wiki" id="wiki-redirect">Wiki</a></span>
+            <span class="redirect-item hvr-bounce-in"><a class="redirect-text" href="/editor" id="html-editor-redirect">HTML Editor</a></span>
+            <span class="redirect-item hvr-bounce-in"><a class="redirect-text" href="/share" id="code-share-redirect">Code Share</a></span>
+            <span class="redirect-item hvr-bounce-in"><a class="redirect-text" href="/questions" id="questions-redirect">Questions</a></span>
         </div>
         <div id="logo-upper-space">
             <!-- <button type="button" id="sign-in">Sign in</button> -->

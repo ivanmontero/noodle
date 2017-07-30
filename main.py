@@ -15,11 +15,19 @@ jinja_environment = jinja2.Environment(
 
 # ====================== IMPORT HANDLER FILES HERE ======================
 from index import *
+from questions import *
+from share import *
+from editor import *
+from wiki import *
 # ====================== IMPORT HANDLER FILES HERE ======================
 
 
 # ========================== ADD HANDLERS HERE ==========================
 app = webapp2.WSGIApplication([
-    ('/', IndexHandler)
+    ('/', IndexHandler),
+    ('/questions', QuestionHandler),
+    ('/share', ShareHandler),
+    ('/editor', EditorHandler),
+    ('/wiki', WikiHandler)
 ], debug=True)
 # ========================== ADD HANDLERS HERE ==========================

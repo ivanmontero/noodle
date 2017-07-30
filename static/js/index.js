@@ -5,7 +5,7 @@ function renderNoodleLogo() {
    var colors = new Array("#A7226E","#EC2049","#F26B38","#F7DB4F","#2F9599","#A7226E"); 
    document.write("<strong>");
    for (var i = 0; i < message.length; i++)
-      document.write("<span class=\"logo-char\" style=\"color:" + colors[(i % colors.length)] + ";\">" + message[i] + "</span>");
+      document.write("<span class=\"logo-char hvr-grow\" style=\"color:" + colors[(i % colors.length)] + ";\">" + message[i] + "</span>");
    document.write("</strong>");
 }
 
