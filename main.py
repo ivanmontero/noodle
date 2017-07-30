@@ -13,12 +13,15 @@ global jinja_environment
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
+
+
 # ====================== IMPORT HANDLER FILES HERE ======================
-from template import *
+from index import *
 # ====================== IMPORT HANDLER FILES HERE ======================
+
 
 # ========================== ADD HANDLERS HERE ==========================
 app = webapp2.WSGIApplication([
-    ('/', PleasePutYourHandlerNameHere)
+    ('/', IndexHandler)
 ], debug=True)
 # ========================== ADD HANDLERS HERE ==========================
