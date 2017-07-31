@@ -49,7 +49,7 @@ class QuestionHandler(webapp2.RequestHandler):
         data["yourquestions"]=[{'name': 'Jenessa', 'question': 'Does this work?'},
                         {'name': 'Jenessa', 'question': 'Yes it does!'},]
         template = jinja_environment.get_template('templates/questions.html')
-        self.response.out.write(template.render(data=data))
+        self.response.out.write(template.render(data))
 
 
     

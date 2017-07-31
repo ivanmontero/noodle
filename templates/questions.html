@@ -38,7 +38,7 @@
                 <div class ="visiblequestion">
                     <span class ="recent">
                         <h2>Recent Questions:</h2>
-                        {% for question in data["questions"] %}
+                        {% for question in questions %}
                         <div class = "question">
                             <p>Q: {{ question.question }}</p>
                         </div>
@@ -47,7 +47,7 @@
 
                     <span class="yours">
                         <h2>Your Questions:</h2>
-                        {% for question in data["yourquestions"] %}
+                        {% for question in yourquestions %}
                         <div class = "yourquestion">
                             <p>{{ question.question }}</p>
                         </div>

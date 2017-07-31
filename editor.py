@@ -14,8 +14,20 @@ from main import jinja_environment
 
 class EditorHandler(webapp2.RequestHandler):
     def get(self):
+        user = users.get_current_user()
+        data = { 
+            "logged_in" : True if user else False,
+            # Tests whether server is on Google's cloud or localhost
+            "cloud_hosted" : os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine/')
+        }
+        if user:
+            data["logout_url"] = users.create_logout_url('/')
+            data["user_nickname"] = user.nickname()
+            data["user_id"] = user.user_id()
+        else:
+            data["login_url"] = users.create_login_url('/')
         template = jinja_environment.get_template('templates/editor.html')
-        self.response.out.write(template.render())
+        self.response.out.write(template.render(data))
     
     def post(self):
         pass
