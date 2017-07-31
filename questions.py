@@ -14,7 +14,7 @@ from main import jinja_environment
 
 class User(ndb.Model):
     name = ndb.StringProperty()
-    question = StringProperty()
+    question = ndb.StringProperty()
 
 class Post(ndb.Model):
     author = ndb.StringProperty()
