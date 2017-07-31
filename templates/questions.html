@@ -28,26 +28,30 @@
         </div>
         <!--=============================== NAVIGATION =============================== -->
         <div id="questions-area">
+            <p><input type="button" value="Create a Post"></p>
             <div class = "expand">
+                
             </div>
-            <span class ="recent">
-                <h2>Recent Posts:</h2>
-                {% for post in data["posts"] %}
-                <div id = {{ 'post.id'}} class = "card">
-                    <h3>{{ post.name }}</h3>
-                    {{ post.post }}
-                </div>
-                {% endfor %}
-            </span>
-            <span class ="yours">
-                <h2>Your Posts:</h2>
-                {% for post in yourpost %}
-                <div id = {{ 'yourpost.id '}} class = "card">
-                    <h3>{{ yourpost.name }}</h3>
-                    {{ yourpost.question }}
-                </div>
-                {% endfor %}
-            </span>
+            <div class ="visiblepost">
+                <span class ="recent">
+                    <h2>Recent Posts:</h2>
+                    {% for post in data["posts"] %}
+                    <div id = {{ 'post.id'}} class = "card">
+                        <h3>{{ post.name }}</h3>
+                        {{ post.post }}
+                    </div>
+                    {% endfor %}
+                </span>
+                <span class ="yours">
+                    <h2>Your Posts:</h2>
+                    {% for post in yourpost %}
+                    <div id = {{ 'yourpost.id '}} class = "card">
+                        <h3>{{ yourpost.name }}</h3>
+                        {{ yourpost.question }}
+                    </div>
+                    {% endfor %}
+                </span>
+            </div>
         </div>
     </body>
 </html>
