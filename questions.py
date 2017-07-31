@@ -20,13 +20,14 @@ class User(ndb.Model):
 class Post(ndb.Model):  
     author = ndb.StringProperty()       # user.user_id()
     author_key = ndb.KeyProperty()      # (user model).key()
-    title = ndb.StringProperty()        # only for QUESTION: the question
+    question = ndb.StringProperty()     # the question
     content = ndb.StringProperty()      # text
     # media = ndb.BlobProperty()          # Images
     date = ndb.DateProperty()           # Date posted
     # votes = ndb.IntegerProperty()       
     post_type = ndb.StringProperty()    # either QUESTION or ANSWER
-    # answers = ndb.KeyProperty(repeated=true)  # only for QUESTION
+    # attached = ndb.KeyProperty(repeated=true)  # QUESTION: the answers
+                                                 # ANSWER:   the question
 
 class QuestionHandler(webapp2.RequestHandler):
     def get(self):
@@ -42,11 +43,11 @@ class QuestionHandler(webapp2.RequestHandler):
             data["user_id"] = user.user_id()
         else:
             data["login_url"] = users.create_login_url('/')
-        data["posts"] = [{'name': 'Jenessa', 'post': 'Does this work?'},
-                        {'name': 'Ivan', 'post': 'Yes it does!'},
-                        {'name': 'Ivan', 'post': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis pulvinar felis. Suspendisse potenti. Cras nibh urna, vehicula at commodo ac, imperdiet quis erat.'}]
-        data["yourposts"]=[{'name': 'Jenessa', 'post': 'Does this work?'},
-                        {'name': 'Jenessa', 'post': 'Yes it does!'},]
+        data["questions"] = [{'name': 'Jenessa', 'question': 'Does this work?'},
+                        {'name': 'Ivan', 'question': 'Yes it does!'},
+                        {'name': 'Ivan', 'question': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis pulvinar felis. Suspendisse potenti. Cras nibh urna, vehicula at commodo ac, imperdiet quis erat.'}]
+        data["yourquestions"]=[{'name': 'Jenessa', 'question': 'Does this work?'},
+                        {'name': 'Jenessa', 'question': 'Yes it does!'},]
         template = jinja_environment.get_template('templates/questions.html')
         self.response.out.write(template.render(data=data))
 

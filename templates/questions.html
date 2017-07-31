@@ -35,23 +35,21 @@
                 <!--#<label for="question">Question: <input type="text" name="question" /></label> -->
                 </div>
 
-                <div class ="visiblepost">
+                <div class ="visiblequestion">
                     <span class ="recent">
-                        <h2>Recent Posts:</h2>
-                        {% for post in data["posts"] %}
-                        <div id = {{'post.id'}} class = "post">
-                            <h3>{{ post.name }}</h3>
-                            {{ post.post }}
+                        <h2>Recent Questions:</h2>
+                        {% for question in data["questions"] %}
+                        <div class = "question">
+                            <p>Q: {{ question.question }}</p>
                         </div>
                         {% endfor %}
                     </span>
 
                     <span class ="yours">
-                        <h2>Your Posts:</h2>
-                        {% for post in data["yourposts"] %}
-                        <div id = {{ 'yourpost.id '}} class = "yourcard">
-                            <h3>{{ post.name }}</h3>
-                            {{ post.post }}
+                        <h2>Your Questions:</h2>
+                        {% for question in data["yourquestions"] %}
+                        <div class = "yourquestion">
+                            <p>{{ question.question }}</p>
                         </div>
                         {% endfor %}
                     </span>
