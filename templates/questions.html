@@ -39,7 +39,7 @@
                     <span class ="recent">
                         <h2>Recent Posts:</h2>
                         {% for post in data["posts"] %}
-                        <div id = {{ 'post.id'}} class = "card">
+                        <div id = {{'post.id'}} class = "post">
                             <h3>{{ post.name }}</h3>
                             {{ post.post }}
                         </div>
