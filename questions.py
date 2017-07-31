@@ -56,7 +56,7 @@ class QuestionHandler(webapp2.RequestHandler):
                         {'name': 'Jenessa', 'question': 'Etiam quam urna, fermentum in dictum ut, auctor eu ligula?'},
                         {'name': 'Jenessa', 'question': 'Nam at nulla non leo sagittis tempor. Phasellus orci risus, suscipit id vulputate eget, consectetur blandit velit?'}]
         template = jinja_environment.get_template('templates/questions.html')
-        self.response.out.write(template.render(data=data))
+        self.response.out.write(template.render(data))
 
 
     

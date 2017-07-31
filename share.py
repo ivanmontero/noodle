@@ -14,8 +14,20 @@ from main import jinja_environment
 
 class ShareHandler(webapp2.RequestHandler):
     def get(self):
-        template = jinja_environment.get_template('templates/your_template_name_here.html')
-        self.response.out.write(template.render())
+        user = users.get_current_user()
+        data = { 
+            "logged_in" : True if user else False,
+            # Tests whether server is on Google's cloud or localhost
+            "cloud_hosted" : os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine/')
+        }
+        if user:
+            data["logout_url"] = users.create_logout_url('/')
+            data["user_nickname"] = user.nickname()
+            data["user_id"] = user.user_id()
+        else:
+            data["login_url"] = users.create_login_url('/')
+        template = jinja_environment.get_template('templates/share.html')
+        self.response.out.write(template.render(data))
     
     def post(self):
         pass
