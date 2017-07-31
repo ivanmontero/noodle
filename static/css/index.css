@@ -67,6 +67,11 @@ body {
     color: black;
 } 
 
+#user-img {
+    width: 6vh;
+    border-radius: 50%;
+}
+
 #questions-redirect {
     color: #A7226E;
 }

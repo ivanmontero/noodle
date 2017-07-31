@@ -14,7 +14,16 @@
         <div class="parallax" id="flying-spaghetti"> </div>
         <div id="redirect-area">
             <!-- SPECIFIED IN BACKWARDS ORDER (so it can match up on right side)  -->
-            <span class="redirect-item hvr-bounce-in"><a class="redirect-text" href="https://www.google.com" id="sign-in-redirect">Sign In</a></span>
+            {% if logged_in %}
+                <span class="redirect-item hvr-bounce-in">
+                    <a class="redirect-text" href="{{logout_url}}" id="sign-in-redirect"><img id="user-img" src="{{user_image}}"></a>
+                </span>
+                <!-- TODO: Drop down to log out  -->
+            {% else %}
+                <span class="redirect-item hvr-bounce-in">
+                    <a class="redirect-text" href="{{login_url}}" id="sign-in-redirect">Sign In</a>
+                </span>
+            {% endif %}
             <!-- TODO: Authentification  -->
             <span class="redirect-item hvr-bounce-in"><a class="redirect-text" href="/wiki" id="wiki-redirect">Wiki</a></span>
             <span class="redirect-item hvr-bounce-in"><a class="redirect-text" href="/editor" id="html-editor-redirect">HTML Editor</a></span>
