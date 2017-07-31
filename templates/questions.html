@@ -28,6 +28,24 @@
         </div>
         <!--=============================== NAVIGATION =============================== -->
         <div id="questions-area">
+            <div class = "expand">
+            </div>
+            <div class ="recent">
+                {% for post in posts %}
+                <div id = {{ 'post.id '}} class = "card">
+                    <h3>{{ post.name }}</h3>
+                    {{ post.question }}
+                </div>
+                {% endfor %}
+            </div>
+            <div class ="yours">
+                {% for post in yourpost %}
+                <div id = {{ 'yourpost.id '}} class = "card">
+                    <h3>{{ yourpost.name }}</h3>
+                    {{ yourpost.question }}
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </body>
 </html>
