@@ -1,8 +1,31 @@
 <html>
     <head>
         <title>Code Share</title>
+        <link rel="stylesheet" href="/res/css/nav.css"> 
+        <link rel="stylesheet" href="/res/css/share.css"> 
+        <script src="/res/js/nav.js"></script>
     </head>
     <body>
-        To be implemented!!
+        <!--=============================== NAVIGATION =============================== -->
+        <div id="navigation">
+            <a href="/"><span id="logo"><script>renderNoodleLogo();</script></span></a>
+            <span id="redirect-items">
+                <!-- SPECIFIED IN BACKWARDS ORDER (so it can match up on right side)  -->
+                {% if logged_in %}
+                    <span class="redirect-item hvr-bounce-in"><div class="redirect-text-container"><a class="redirect-text" href="{{logout_url}}" id="sign-in-redirect">{{user_nickname}}</a></div></span>
+                    <!-- TODO: Drop down to log out  -->
+                {% else %}
+                    <span class="redirect-item hvr-bounce-in"><div class="redirect-text-container">
+                        <a class="redirect-text" href="{{login_url}}" id="sign-in-redirect">Sign In</a>
+                    </div></span>
+                {% endif %}
+                <!-- TODO: Authentification  -->
+                <span class="redirect-item hvr-bounce-in"><div class="redirect-text-container"><a class="redirect-text" href="/wiki" id="wiki-redirect">Wiki</a></div></span>
+                <span class="redirect-item hvr-bounce-in"><div class="redirect-text-container"><a class="redirect-text" href="/editor" id="html-editor-redirect">HTML Editor</a></div></span>
+                <span class="redirect-item hvr-buzz"><div class="redirect-text-container"><a class="redirect-text" href="/share" id="active">Code Share</a></div></span>
+                <span class="redirect-item hvr-bounce-in"><div class="redirect-text-container"><a class="redirect-text" href="/questions" id="questions-redirect">Questions</a></div></span>
+            </span>
+        </div>
+        <!--=============================== NAVIGATION =============================== -->
     </body>
 </html>
