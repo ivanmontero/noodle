@@ -21,11 +21,11 @@ class EditorHandler(webapp2.RequestHandler):
             "cloud_hosted" : os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine/')
         }
         if user:
-            data["logout_url"] = users.create_logout_url('/')
+            data["logout_url"] = users.create_logout_url('/editor')
             data["user_nickname"] = user.nickname()
             data["user_id"] = user.user_id()
         else:
-            data["login_url"] = users.create_login_url('/')
+            data["login_url"] = users.create_login_url('/editor')
         template = jinja_environment.get_template('templates/editor.html')
         self.response.out.write(template.render(data))
     

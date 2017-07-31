@@ -21,11 +21,11 @@ class ShareHandler(webapp2.RequestHandler):
             "cloud_hosted" : os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine/')
         }
         if user:
-            data["logout_url"] = users.create_logout_url('/')
+            data["logout_url"] = users.create_logout_url('/share')
             data["user_nickname"] = user.nickname()
             data["user_id"] = user.user_id()
         else:
-            data["login_url"] = users.create_login_url('/')
+            data["login_url"] = users.create_login_url('/share')
         template = jinja_environment.get_template('templates/share.html')
         self.response.out.write(template.render(data))
     

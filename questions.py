@@ -38,11 +38,11 @@ class QuestionHandler(webapp2.RequestHandler):
             "cloud_hosted" : os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine/')
         }
         if user:
-            data["logout_url"] = users.create_logout_url('/')
+            data["logout_url"] = users.create_logout_url('/questions')
             data["user_nickname"] = user.nickname()
             data["user_id"] = user.user_id()
         else:
-            data["login_url"] = users.create_login_url('/')
+            data["login_url"] = users.create_login_url('/questions')
         data["questions"] = [{'name': 'Jenessa', 'question': 'Does this work?'},
                         {'name': 'Ivan', 'question': 'Yes it does!'},
                         {'name': 'Ivan', 'question': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis pulvinar felis. Suspendisse potenti. Cras nibh urna, vehicula at commodo ac, imperdiet quis erat.'}]
