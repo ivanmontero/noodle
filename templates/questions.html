@@ -29,9 +29,12 @@
         <!--=============================== NAVIGATION =============================== -->
         <div id="questions-area">
             <p><input type="button" value="Create a Post"></p>
+
             <div class = "expand">
                 
+            <!--#<label for="question">Question: <input type="text" name="question" /></label> -->
             </div>
+
             <div class ="visiblepost">
                 <span class ="recent">
                     <h2>Recent Posts:</h2>
@@ -42,6 +45,7 @@
                     </div>
                     {% endfor %}
                 </span>
+
                 <span class ="yours">
                     <h2>Your Posts:</h2>
                     {% for post in yourpost %}
