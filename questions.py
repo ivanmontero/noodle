@@ -13,11 +13,12 @@ from google.appengine.ext import ndb
 from main import jinja_environment
 
 class User(ndb.Model):
-    name = ndb.StringProperty()
-    question = ndb.StringProperty()
+    user_id = ndb.StringProperty()      # user.user_id()
+    name = ndb.StringProperty()         # user.nickname()
+    # question = ndb.StringProperty()
 
-class Post(ndb.Model):
-    author = ndb.StringProperty()
+class Post(ndb.Model):  
+    author = ndb.StringProperty()       #   
     content = ndb.StringProperty()
     media = ndb.BlobProperty()
     date = ndb.DateProperty()
