@@ -26,12 +26,14 @@ class IndexHandler(webapp2.RequestHandler):
             data["logout_url"] = users.create_logout_url('/')
             data["user_nickname"] = user.nickname()
             data["user_id"] = user.user_id()
-            # Testing purposes, My ID: 114783711473680853748
-            if(data["cloud_hosted"]):
-                data["user_image"] = json.loads(urllib2.urlopen("https://www.googleapis.com/plus/v1/people/" 
-                    + str(user.user_id()) + "?fields=image&key=AIzaSyBTXhazY7-0epr_F1ardo8CHOA9afRXfuc").read())["image"]["url"]
-            else:
-                data["user_image"] = "/res/img/anon-pic.png"
+            # Ditched idea of using user's profile image.
+            # # Testing purposes, My ID: 114783711473680853748
+            # if(data["cloud_hosted"]):
+            #     # data["user_image"] = json.loads(urllib2.urlopen(("https://www.googleapis.com/plus/v1/people/" 
+            #     #     + str(user.user_id()) + "?fields=image&key=AIzaSyBTXhazY7-0epr_F1ardo8CHOA9afRXfuc")).read())["image"]["url"]
+            #     data["user_image"] = "https://www.googleapis.com/plus/v1/people/" + str(user.user_id()) + "?fields=image&key=AIzaSyBTXhazY7-0epr_F1ardo8CHOA9afRXfuc"
+            # else:
+            #     data["user_image"] = "/res/img/anon-pic.png"
         else:
             data["login_url"] = users.create_login_url('/')
         template = jinja_environment.get_template('templates/index.html')

@@ -15,9 +15,7 @@
         <div id="redirect-area">
             <!-- SPECIFIED IN BACKWARDS ORDER (so it can match up on right side)  -->
             {% if logged_in %}
-                <span class="redirect-item hvr-bounce-in">
-                    <a class="redirect-text" href="{{logout_url}}" id="sign-in-redirect"><img id="user-img" src="{{user_image}}"></a>
-                </span>
+                <span class="redirect-item hvr-bounce-in"><a class="redirect-text" href="{{logout_url}}" id="sign-in-redirect">{{user_nickname}}</a></span>
                 <!-- TODO: Drop down to log out  -->
             {% else %}
                 <span class="redirect-item hvr-bounce-in">
