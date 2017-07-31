@@ -14,7 +14,7 @@ from main import jinja_environment
 
 class QuestionHandler(webapp2.RequestHandler):
     def get(self):
-        template = jinja_environment.get_template('templates/your_template_name_here.html')
+        template = jinja_environment.get_template('templates/questions.html')
         self.response.out.write(template.render())
     
     def post(self):

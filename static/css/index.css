@@ -19,7 +19,7 @@ body {
     background-image: url("../img/flying_spaghetti.png");
 }
 
-#redirect-area {
+#navigation {
     position: relative;
     /* float: right; */
     right: 1%; 
@@ -92,7 +92,7 @@ body {
 }
 
 #logo-lower-space {
-    height: 70%;
+    height: 90%;
 }
 
 #logo {
