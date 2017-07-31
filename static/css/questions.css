@@ -187,34 +187,38 @@ body {
 .card {
     margin-left: 0px;
     background-color: grey;
-    width: 40%;
+    width: 80%;
     height: 30%;
 }
 
 .recent {
-    width: 50%;
+    width: 70%;
+    float: left;
+    display: block;
 
 }
 
 .yours {
-    width: 50%;
+    width: 30%;
     display: block;
     float: right;
 
 }
 
 .visiblepost {
-    visibility: hidden;
+    visibility: visible;
 }
 /*=================================== CARDS =================================== */
 
 body {
     background-color: rgba(0, 0, 0, 0.2);
 }
-
+/*
 .expand {
     margin: auto;
     background-color: white;
     width: 50%;
     height: 70%;
+    visibility: collapse;
 }
+*/
