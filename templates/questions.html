@@ -40,7 +40,7 @@
                         <h2>Recent Posts:</h2>
                         {% for post in data["posts"] %}
                         <div id = {{'post.id'}} class = "post">
-                            <h3>{{ post.name }}</h3>
+                            <p>{{ post.name }}</p>
                             {{ post.post }}
                         </div>
                         {% endfor %}
@@ -50,7 +50,7 @@
                         <h2>Your Posts:</h2>
                         {% for post in data["yourposts"] %}
                         <div id = {{ 'yourpost.id '}} class = "yourcard">
-                            <h3>{{ post.name }}</h3>
+                            <p>{{ post.name }}</p>
                             {{ post.post }}
                         </div>
                         {% endfor %}
