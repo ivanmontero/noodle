@@ -6,7 +6,7 @@ import logging
 # Parsing libraries
 import json
 import urllib2
-# Authentification and databasse libraries
+# Authentification and database libraries
 from google.appengine.api import users
 from google.appengine.ext import ndb
 # Get jinja environment from main
@@ -14,7 +14,7 @@ from main import jinja_environment
 
 class User(ndb.Model):
     name = ndb.StringProperty()
-    question = StringProperty()
+    question = ndb.StringProperty()
 
 class Post(ndb.Model):
     author = ndb.StringProperty()
@@ -23,7 +23,7 @@ class Post(ndb.Model):
     date = ndb.DateProperty()
     votes = ndb.IntegerProperty()
     post_type = ndb.StringProperty()
-    
+
 class QuestionHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
@@ -38,8 +38,9 @@ class QuestionHandler(webapp2.RequestHandler):
             data["user_id"] = user.user_id()
         else:
             data["login_url"] = users.create_login_url('/')
+        data["posts"] = [{'name': 'Jenessa', 'post': 'Does this work?'}]
         template = jinja_environment.get_template('templates/questions.html')
-        self.response.out.write(template.render(data))
+        self.response.out.write(template.render(data=data))
 
 
     

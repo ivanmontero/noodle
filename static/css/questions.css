@@ -119,3 +119,26 @@ body {
   transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
 }
 /* =============================== NAVIGATION =============================== */
+
+.card {
+    margin-left: 0px;
+    background-color: grey;
+    width: 40%;
+    height: 30%;
+}
+
+.recent {
+    width: 50%;
+}
+
+.yours {
+    width: 50%;
+    display: block;
+    float: right;
+}
+
+/*=================================== CARD =================================== */
+
+body {
+    background-color: rgba(0, 0, 0, 0.2);
+}

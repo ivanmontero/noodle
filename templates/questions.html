@@ -30,22 +30,24 @@
         <div id="questions-area">
             <div class = "expand">
             </div>
-            <div class ="recent">
-                {% for post in posts %}
-                <div id = {{ 'post.id '}} class = "card">
+            <span class ="recent">
+                <h2>Recent Posts:</h2>
+                {% for post in data["posts"] %}
+                <div id = {{ 'post.id'}} class = "card">
                     <h3>{{ post.name }}</h3>
-                    {{ post.question }}
+                    {{ post.post }}
                 </div>
                 {% endfor %}
-            </div>
-            <div class ="yours">
+            </span>
+            <span class ="yours">
+                <h2>Your Posts:</h2>
                 {% for post in yourpost %}
                 <div id = {{ 'yourpost.id '}} class = "card">
                     <h3>{{ yourpost.name }}</h3>
                     {{ yourpost.question }}
                 </div>
                 {% endfor %}
-            </div>
+            </span>
         </div>
     </body>
 </html>
