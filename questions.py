@@ -40,6 +40,8 @@ class QuestionHandler(webapp2.RequestHandler):
             data["login_url"] = users.create_login_url('/')
         data["posts"] = [{'name': 'Jenessa', 'post': 'Does this work?'},
                         {'name': 'Ivan', 'post': 'Yes it does!'}]
+        data["yourposts"]=[{'name': 'Jenessa', 'post': 'Does this work?'},
+                        {'name': 'Jenessa', 'post': 'Yes it does!'}]
         template = jinja_environment.get_template('templates/questions.html')
         self.response.out.write(template.render(data=data))
 

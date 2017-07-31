@@ -164,10 +164,23 @@ body {
 .visiblepost {
     visibility: visible;
 }
+
+.yourcard {
+    background-color: black;
+    width: 100%;
+    height: 20%;
+    color: white;
+}
 /*=================================== CARDS =================================== */
 
 body {
+    background-color: white;
+}
+
+.box {
     background-color: rgba(0, 0, 0, 0.2);
+    margin: auto;
+    width: 80%;
 }
 /*
 .expand {
