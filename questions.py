@@ -18,12 +18,15 @@ class User(ndb.Model):
     # question = ndb.StringProperty()
 
 class Post(ndb.Model):  
-    author = ndb.StringProperty()       #   
-    content = ndb.StringProperty()
-    media = ndb.BlobProperty()
-    date = ndb.DateProperty()
-    votes = ndb.IntegerProperty()
-    post_type = ndb.StringProperty()
+    author = ndb.StringProperty()       # user.user_id()
+    author_key = ndb.KeyProperty()      # (user model).key()
+    title = ndb.StringProperty()        # only for QUESTION: the question
+    content = ndb.StringProperty()      # text
+    # media = ndb.BlobProperty()          # Images
+    date = ndb.DateProperty()           # Date posted
+    # votes = ndb.IntegerProperty()       
+    post_type = ndb.StringProperty()    # either QUESTION or ANSWER
+    # answers = ndb.KeyProperty(repeated=true)  # only for QUESTION
 
 class QuestionHandler(webapp2.RequestHandler):
     def get(self):
