@@ -129,16 +129,28 @@ body {
 
 .recent {
     width: 50%;
+
 }
 
 .yours {
     width: 50%;
     display: block;
     float: right;
+
 }
 
-/*=================================== CARD =================================== */
+.visiblepost {
+    visibility: hidden;
+}
+/*=================================== CARDS =================================== */
 
 body {
     background-color: rgba(0, 0, 0, 0.2);
+}
+
+.expand {
+    margin: auto;
+    background-color: white;
+    width: 50%;
+    height: 70%;
 }
