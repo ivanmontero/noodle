@@ -42,7 +42,8 @@ class Answer(ndb.Model):
     # media = ndb.BlobProperty()          # Images
     # date = ndb.DateProperty()           # Date posted
     # votes = ndb.IntegerProperty()       
-    question = ndb.KeyProperty()
+    # question = ndb.KeyProperty()
+    question = ndb.StringProperty()   # Store using ID
 
 # Helper method to attach ID's with their questions
 def formatRetrievableQuestions(questions):
@@ -111,7 +112,7 @@ class NewQuestionHandler(webapp2.RequestHandler):
             if question and content:
                 question_key = Question(author_id=user_model.user_id, author_nickname=user_model.nickname,
                     question=question, content=content).put()
-                user_model.answers.append(question_key)
+                user_model.questions.append(question_key)
                 logging.info("New question created!")
                 user_model.put()
 
@@ -146,3 +147,22 @@ class GetQuestionHandler(webapp2.RequestHandler):
 class NewAnswerHander(webapp2.RequestHandler):
     def post(self):
         logging.info("Got a new answer!")
+        user = users.get_current_user()
+        if user:
+            question_id = self.request.get("question_id")
+            content = self.request.get("content")
+            # Test if user object exists
+            user_model = User.query(User.user_id == user.user_id()).get()
+            if not user_model:
+                # Create user object for new user
+                user_model = User(user_id=user.user_id(), nickname=user.nickname())
+                user_model.put()
+                logging.info("New user created!")
+            # Test for valid input
+            if question_id and content:
+                answer_key = Answer(author_id=user_model.user_id, author_nickname=user_model.nickname,
+                    question_id=question_id, content=content).put()
+                user_model.questions.append(question_key)
+                logging.info("New answer created!")
+                user_model.answers.append(question_key)
+                user_model.put()
