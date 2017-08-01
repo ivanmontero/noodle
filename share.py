@@ -29,11 +29,28 @@ class ShareHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/share.html')
         self.response.out.write(template.render(data))
     
+class Code(ndb.Model):
+    content = ndb.StringProperty()
+
+class GetCode(webapp2.RequestHandler):
+    def get(self):
+        logging.info("retrieving the key")
+        code_id = self.request.get("code_id")
+        logging.info(code_id)
+        
+        code = Code.get_by_id(int(code_id))
+
+        if code_id:
+            logging.info("id is valid")
+
+        template = jinja_environment.get_template('templates/share.html')
+        self.response.out.write(template.render(id=result))
+
+class PostCode(webapp2.RequestHandler):
     def post(self):
+        logging.info("got some code")
         code = self.request.get("code")
         if code:
             content_key = Code(content=code).put()
-
-class Code(ndb.Model):
-    content_id = ndb.StringProperty()
-    content = ndb.StringProperty()
+            unique_id = content_key.id()
+            logging.info("id = " + unique_id)
