@@ -124,10 +124,18 @@ class GetQuestionsHandler(webapp2.RequestHandler):
             del i["answers"]
         self.response.write(json.dumps(result))
 
-class GetQuetionHandler(webapp2.RequestHandler):
+class GetQuestionHandler(webapp2.RequestHandler):
     def get(self):
         logging.info("GET question recieved!")
+        # Should recieve an ID of a question
         question_id = self.request.get("question_id")   #Might have to cast to int
+        logging.info(question_id)
+        # TODO: Get data from the question with the id passed and populate the
+        # overlay template with the values in the question then return the html
+        # in the response.
+        self.response.write(question_id)
+
+        
 
 class NewAnswerHander(webapp2.RequestHandler):
     def post(self):
