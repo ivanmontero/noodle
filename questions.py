@@ -124,6 +124,11 @@ class GetQuestionsHandler(webapp2.RequestHandler):
             del i["answers"]
         self.response.write(json.dumps(result))
 
+class GetQuetionHandler(webapp2.RequestHandler):
+    def get(self):
+        logging.info("GET question recieved!")
+        question_id = self.request.get("question_id")   #Might have to cast to int
+
 class NewAnswerHander(webapp2.RequestHandler):
     def post(self):
         logging.info("Got a new answer!")
