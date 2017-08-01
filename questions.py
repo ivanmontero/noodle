@@ -133,7 +133,13 @@ class GetQuestionHandler(webapp2.RequestHandler):
         # TODO: Get data from the question with the id passed and populate the
         # overlay template with the values in the question then return the html
         # in the response.
-        self.response.write(question_id)
+        question = Question.get_by_id(int(question_id))
+        # self.response.write(question_id)
+        if question:
+            logging.info("question id is valid")
+            data = question.to_dict()
+            template = jinja_environment.get_template('templates/questions-overlay.html')
+            self.response.out.write(template.render(data))
 
         
 
