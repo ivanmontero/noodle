@@ -23,8 +23,10 @@ class User(ndb.Model):
     answers = ndb.KeyProperty(repeated=True)
     # question = ndb.StringProperty()
 
-class Question(ndb.Model):  
-    author_key = ndb.KeyProperty()      # (user model).key()
+class Question(ndb.Model):
+    author_id = ndb.StringProperty()
+    author_nickname = ndb.StringProperty()
+    # author_key = ndb.KeyProperty()      # (user model).key()
     question = ndb.StringProperty()     # the question
     content = ndb.StringProperty()      # text
     # media = ndb.BlobProperty()          # Images
@@ -33,7 +35,9 @@ class Question(ndb.Model):
     answers = ndb.KeyProperty(repeated=True)
 
 class Answer(ndb.Model):  
-    author_key = ndb.KeyProperty()      # (user model).key()
+    author_id = ndb.StringProperty()
+    author_nickname = ndb.StringProperty()
+    # author_key = ndb.KeyProperty()      # (user model).key()
     content = ndb.StringProperty()      # text
     # media = ndb.BlobProperty()          # Images
     # date = ndb.DateProperty()           # Date posted
@@ -90,15 +94,18 @@ class NewQuestionHandler(webapp2.RequestHandler):
                 logging.info("New user created!")
             # Test for valid input
             if question and content:
-                question_key = Question(author_key=user_model.key, question=question, content=content).put()
+                question_key = Question(author_id=user_model.user_id, author_nickname=user_model.nickname,
+                    question=question, content=content).put()
                 user_model.answers.append(question_key)
                 logging.info("New question created!")
                 user_model.put()
 
-class NewAnswerHander(webapp2.RequestHandler):
-    def post(self):
-        logging.info("Got a new answer!")
-
 class GetQuestionsHandler(webapp2.RequestHandler):
     def get(self):
         logging.info("GET questions recieved!")
+        result = Question.query().fetch()
+        self.response.write(json.dumps([i.to_dict() for i in result]))
+
+class NewAnswerHander(webapp2.RequestHandler):
+    def post(self):
+        logging.info("Got a new answer!")
