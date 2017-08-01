@@ -29,7 +29,7 @@ app = webapp2.WSGIApplication([
     ('/questions/createquestion', CreateQuestionHandler),
     ('/questions/newquestion', NewQuestionHandler),
     ('/questions/getquestions', GetQuestionsHandler),
-    ('/questions/getquestion', GetQuestionHandler),
+    ('/questions/getquestionhtml', GetQuestionHTMLHandler),
     ('/questions/newanswer', NewAnswerHandler),
     ('/share', ShareHandler),
     ('/editor', EditorHandler),

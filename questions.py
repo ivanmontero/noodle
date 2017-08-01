@@ -105,6 +105,8 @@ class NewQuestionHandler(webapp2.RequestHandler):
             # Retrieve data
             question = self.request.get("question")
             content = self.request.get("content")
+            # logging.info(question)
+            # logging.info(content)
             # date = datetime.
 
             # Test if user object exists
@@ -131,7 +133,11 @@ class GetQuestionsHandler(webapp2.RequestHandler):
             del i["answers"]
         self.response.write(json.dumps(result))
 
-class GetQuestionHandler(webapp2.RequestHandler):
+class GetQuestionsHTMLHandler(webapp2.RequestHandler):
+    def get(self):
+        pass
+
+class GetQuestionHTMLHandler(webapp2.RequestHandler):
     def get(self):
         logging.info("GET question recieved!")
         # Should recieve an ID of a question
