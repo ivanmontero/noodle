@@ -22,19 +22,30 @@ hr {
 }
 
 .expand {
-    margin-top: 2%;
+    float: right;
+    display: block;
+    margin-top: 6%;
     background-color: white;
     border-style: solid;
     border-color: rgba(0, 0, 0, 0.2);
     border-width: 1px;
-    width: 100%;
-    height: 10%;
+    width: 24%;
+    height: 20%;
 }
 
 .expand p {
+    margin: 0;
+    text-align: center;
     font-weight: bold;
     font-size: 25px;
     color: #A7226E;
+}
+
+.expand img {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6%;
+    display: block;
 }
 
 /*
