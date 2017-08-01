@@ -11,9 +11,17 @@ $(document).ready(function() {
         });
         $("#overlay").css("display", "block");
     });
+    $(".ask").click(function() {
+        $.ajax("/questions/createquestion").then(function(result) {
+            // Set overlay html with question. The result will be html
+            $("#overlay").html( result );
+        });
+        $("#overlay").css("display", "block");
+    })
     // TODO: transition
     $("#overlay").click(function() {
-        if(!$(event.target).is('.post-item') && !$(event.target).parents('.post-item').is('.post-item'))
+        if(!$(event.target).is('.post-item') && !$(event.target).parents('.post-item').is('.post-item')) {
             $("#overlay").css("display", "none");
+        }
     });
 });

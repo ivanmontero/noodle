@@ -89,6 +89,12 @@ class QuestionHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/questions.html')
         self.response.out.write(template.render(data))
     
+class CreateQuestionHandler(webapp2.RequestHandler):
+    def get(self):
+        logging.info("CREATE question called!")
+        # Test if user is logged in. Redirect to login if not logged in
+        template = jinja_environment.get_template('templates/questions-new-overlay.html')
+        self.response.out.write(template.render())
 
 class NewQuestionHandler(webapp2.RequestHandler):
     def post(self):
@@ -141,9 +147,7 @@ class GetQuestionHandler(webapp2.RequestHandler):
             data = question.to_dict()
             template = jinja_environment.get_template('templates/questions-post-overlay.html')
             self.response.out.write(template.render(data))
-
         
-
 class NewAnswerHandler(webapp2.RequestHandler):
     def post(self):
         logging.info("Got a new answer!")
