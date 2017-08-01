@@ -33,6 +33,11 @@ body {
     height: 95%;
     text-align: center;
 }
+
+#question-creation {
+    background-color: rgba(0, 0, 0, 0.65); 
+    padding: 1%;
+}
 /*  NEW QUESTION  */
 
 #post-top-space {

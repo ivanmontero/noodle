@@ -20,7 +20,8 @@ $(document).ready(function() {
     })
     // TODO: transition
     $("#overlay").click(function() {
-        if(!$(event.target).is('.post-item') && !$(event.target).parents('.post-item').is('.post-item')) {
+        if(!$(event.target).is('.post-item') && !$(event.target).parents('.post-item').is('.post-item') &&
+             !$(event.target).is('#question-creation') && !$(event.target).parents('#question-creation').is('#question-creation')) {
             $("#overlay").css("display", "none");
         }
     });
