@@ -21,6 +21,19 @@ body {
     background-color: rgba(0, 0, 0, 0.65);
     padding: 0;
 }
+/*  NEW QUESTION  */
+#new-top-space {
+    height: 2.5%;
+}
+
+#new-container {
+    margin: 0 auto;
+    top: 5%;
+    width: 75%;
+    height: 95%;
+    text-align: center;
+}
+/*  NEW QUESTION  */
 
 #post-top-space {
     height: 2.5%;
