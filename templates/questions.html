@@ -33,11 +33,6 @@
          <!-- <hr>  -->
         <div class="box">
             <div id="questionsarea">
-                <div class = "expand">
-                    <img src="/res/img/fsm3d.gif" height='100px' width='100px'>
-                    <p>Ask a Question</p>
-                <!--#<label for="question">Question: <input type="text" name="question" /></label> -->
-                </div>
 
                 <div class ="visiblequestion">
                     <span class ="recent">
@@ -51,12 +46,19 @@
                     </span>
 
                     <span class="yours">
-                        <h2>Your Questions:</h2>
-                        {% for question in yourquestions %}
-                        <div class = "yourquestion">
-                            <p>{{ question.question }}</p>
+                        <div class = "expand">
+                        <img src="/res/img/fsm3d.gif" height='100px' width='100px'>
+                        <p>Ask a Question</p>
+                        <!--#<label for="question">Question: <input type="text" name="question" /></label> -->
                         </div>
-                        {% endfor %}
+                        <div class ="container">
+                            <h2>Your Questions:</h2>
+                            {% for question in yourquestions %}
+                            <div class = "yourquestion">
+                                <p>{{ question.question }}</p>
+                            </div>
+                            {% endfor %}
+                        </div>
                     </span>
                 </div>
             </div>

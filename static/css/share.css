@@ -4,3 +4,21 @@ body {
     margin: 0;
     /* display: block; */
 }
+
+.submissionfield {
+    width: 40%;
+    height: 50%;
+    padding: 3%;
+    border: 1px solid;
+}
+
+form {
+    text-align: center;
+}
+
+.title {
+    font-weight: bold;
+    color: #A7226E;
+    font-size: 30px;
+
+}
