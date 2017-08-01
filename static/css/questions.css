@@ -18,12 +18,12 @@ body {
     height: 95%;
     top: 5%;
     z-index: 2;
-    background-color: rgba(0, 0, 0, 0.65);
+    background-color: rgba(0, 0, 0, 0.75);
     padding: 0;
 }
 /*  NEW QUESTION  */
 #new-top-space {
-    height: 2.5%;
+    height: 5%;
 }
 
 #new-container {
@@ -35,8 +35,30 @@ body {
 }
 
 #question-creation {
-    background-color: rgba(0, 0, 0, 0.65); 
-    padding: 1%;
+    background-color: rgba(0, 0, 0, 0.75); 
+    padding: 5%;
+    height: 80%;
+}
+
+#new-question-text {
+    color: white;
+    margin: 0;
+    padding-bottom: 3%;
+}
+
+#newquestioncontent {
+    width: 85%;
+    height: 70%;
+}
+
+#newquestiontitle {
+    width: 85%;
+    /* height: 80%; */
+}
+
+#question-input p {
+    color: white;
+    margin: 0;
 }
 /*  NEW QUESTION  */
 
@@ -163,7 +185,9 @@ hr {
     background-color: white;
     font-size: 20px;
     font-weight: bold;
-    margin-top: 0;
+    margin-top: 12px;
+    margin-left: 3px;
+    margin-right: 3px;
     margin-bottom: 12px;
 }
 
