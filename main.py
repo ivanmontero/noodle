@@ -28,6 +28,7 @@ app = webapp2.WSGIApplication([
     ('/questions', QuestionHandler),
     ('/questions/newquestion', NewQuestionHandler),
     ('/questions/getquestions', GetQuestionsHandler),
+    ('/questions/getquestion', GetQuestionHandler),
     ('/share', ShareHandler),
     ('/editor', EditorHandler),
     ('/wiki', WikiHandler)
