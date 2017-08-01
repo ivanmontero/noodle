@@ -56,7 +56,7 @@
     color: black;
     /*  Outline  */
     /* text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; */
-    text-shadow: 0 0 1px #000000;
+    text-shadow: 0 0 1px #000000; 
     vertical-align: center;
     margin: 0 auto;
 }

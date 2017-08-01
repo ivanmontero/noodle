@@ -30,7 +30,7 @@
             </span>
         </div>
         <!--=============================== NAVIGATION =============================== -->
-        <hr>
+         <!-- <hr>  -->
         <div class="box">
             <div id="questionsarea">
                 <div class = "expand">
@@ -43,7 +43,8 @@
                     <span class ="recent">
                         <h2>Recent Questions:</h2>
                         {% for question in questions %}
-                        <div class = "question">
+                        <!--  Make clickable, and fire a jQuery event that sends a get request with the current id  -->
+                        <div class="question" id="{{question.id}}">
                             <p><span class="q">Q:</span> {{ question.question }}</p>
                         </div>
                         {% endfor %}
