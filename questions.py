@@ -17,17 +17,24 @@ class User(ndb.Model):
     name = ndb.StringProperty()         # user.nickname()
     # question = ndb.StringProperty()
 
-class Post(ndb.Model):  
-    author = ndb.StringProperty()       # user.user_id()
+class Question(ndb.Model):  
+    author_id = ndb.StringProperty()       # user.user_id()
     author_key = ndb.KeyProperty()      # (user model).key()
     question = ndb.StringProperty()     # the question
     content = ndb.StringProperty()      # text
     # media = ndb.BlobProperty()          # Images
     date = ndb.DateProperty()           # Date posted
     # votes = ndb.IntegerProperty()       
-    post_type = ndb.StringProperty()    # either QUESTION or ANSWER
-    # attached = ndb.KeyProperty(repeated=true)  # QUESTION: the answers
-                                                 # ANSWER:   the question
+    answers = ndb.KeyProperty(repeated=True)
+
+class Answer(ndb.Model):  
+    author_id = ndb.StringProperty()       # user.user_id()
+    author_key = ndb.KeyProperty()      # (user model).key()
+    content = ndb.StringProperty()      # text
+    # media = ndb.BlobProperty()          # Images
+    date = ndb.DateProperty()           # Date posted
+    # votes = ndb.IntegerProperty()       
+    question = ndb.KeyProperty()
 
 class QuestionHandler(webapp2.RequestHandler):
     def get(self):
@@ -43,6 +50,7 @@ class QuestionHandler(webapp2.RequestHandler):
             data["user_id"] = user.user_id()
         else:
             data["login_url"] = users.create_login_url('/questions')
+        # Test data
         data["questions"] = [{'name': 'Jenessa', 'question': 'Does this work?'},
                         {'name': 'Ivan', 'question': 'Yes it does!'},
                         {'name': 'Ivan', 'question': 'Vivamus pretium eu metus eget ornare. Quisque nec quam ipsum. Sed non dignissim nunc. Quisque eget dolor lorem?'},
@@ -58,7 +66,14 @@ class QuestionHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/questions.html')
         self.response.out.write(template.render(data))
 
-
-    
+class NewQuestionHandler(webapp2.RequestHandler):
     def post(self):
-        pass
+        logging.info("Got a new question!")
+
+class NewAnswerHander(webapp2.RequestHandler):
+    def post(self):
+        logging.info("Got a new answer!")
+
+class GetQuestionsHandler(webapp2.RequestHandler):
+    def get(self):
+        logging.info("GET questions recieved!")
