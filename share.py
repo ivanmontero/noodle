@@ -32,7 +32,7 @@ class ShareHandler(webapp2.RequestHandler):
 class Code(ndb.Model):
     content = ndb.StringProperty()
 
-class GetQuestion(webapp2.RequestHandler):
+class GetCode(webapp2.RequestHandler):
     def get(self):
         logging.info("retrieving the key")
         code_id = self.request.get("code_id")
@@ -46,6 +46,7 @@ class GetQuestion(webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/share.html')
         self.response.out.write(template.render(id=result))
 
+class PostCode(webapp2.RequestHandler):
     def post(self):
         logging.info("got some code")
         code = self.request.get("code")
