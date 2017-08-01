@@ -135,7 +135,16 @@ class GetQuestionsHandler(webapp2.RequestHandler):
 
 class GetQuestionsHTMLHandler(webapp2.RequestHandler):
     def get(self):
-        pass
+        logging.info("GET questions HTML recieved!")
+        result = [i.to_dict() for i in Question.query().fetch()]
+        # Remove all attached answer keys so an error isn't thrown
+        for i in result:
+            del i["answers"]
+            del i["author_id"]
+            del i["author_nickname"]
+        template = jinja_environment.get_template('templates/questions-posts.html')
+        self.response.out.write(template.render(questions=result))
+        
 
 class GetQuestionHTMLHandler(webapp2.RequestHandler):
     def get(self):

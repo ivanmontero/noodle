@@ -7,17 +7,28 @@ $(document).ready(function() {
             data: { "question_id" :  $(this).attr("id") }
         }).then(function(result) {
             // Set overlay html with question. The result will be html
-            $("#overlay").html( result );
+            // OLD
+            // $("#overlay").html( result );
+            // NEW
+            $("#overlay").html("")
+                         .append(htmlToElements(result));
+            
         });
         $("#overlay").css("display", "block");
     });
     $(".ask").click(function() {
         $.ajax("/questions/createquestion").then(function(result) {
             // Set overlay html with question. The result will be html
-            $("#overlay").html( result );
+            // $("#overlay").html( result );
+            $("#overlay").html("")
+                         .append(htmlToElements(result));
         });
         $("#overlay").css("display", "block");
     });
+    // $.ajax("/questions/getquestionshtml").then(function(result) {
+    //     console.log(result);
+    //     $(".recent").html(result);
+    // });
     // $("#submit-question").click(function() {
     //     console.log("Question submit");
     //     $.post('/questions/newquestion', {
@@ -35,11 +46,18 @@ $(document).ready(function() {
 });
 
 function submitQuestion() {
-    console.log("Question submit");
-    console.log($("#newquestiontitle").val());
-    console.log($("#newquestioncontent").val());
+    // console.log("Question submit");
+    // console.log($("#newquestiontitle").val());
+    // console.log($("#newquestioncontent").val());
     $.post('/questions/newquestion', {
         "question" : $("#newquestiontitle").val(),
         "content" : $("#newquestioncontent").val()
     });
+    $("#overlay").css("display", "none");
+}
+
+function htmlToElements(html) {
+    var template = document.createElement('template');
+    template.innerHTML = html;
+    return template.content.childNodes;
 }
