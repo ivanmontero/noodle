@@ -51,6 +51,8 @@ body {
 
 /* =================================== OVERLAY =================================== */
 
+
+/* =================================== POSTS =================================== */
 .q {
     color: #A7226E;
 }
@@ -67,7 +69,7 @@ hr {
 }
 
 .expand {
-    float: right;
+    /* float: right; */
     display: block;
     margin-top: 6%;
     background-color: white;
@@ -96,13 +98,20 @@ hr {
 .container {
     width: 101%;
     height: auto;
-    background-color: white;
+    /* background-color: white; */
     width: 100%;
-    margin-top: 200px;
-    border-style: solid;
-    border-color: rgba(0, 0, 0, 0.2);
-    border-width: 1px;
+    /* margin-top: 200px; */
+    /* border-style: solid; */
+    /* border-color: rgba(0, 0, 0, 0.2); */
+    /* border-width: 1px; */
+    /* text-align: center; */
 }
+#your-question-h2 {
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    text-align: center;
+}
+
 /*
 .expand {
     margin: auto;
@@ -113,7 +122,6 @@ hr {
 }
 */
 
-/* =================================== POSTS =================================== */
 
 
 .question {
@@ -159,16 +167,23 @@ hr {
 }
 
 .yourquestion {
-    background-color: white;
+     background-color: white; 
     padding: 0.5%;
     margin-bottom: 0px;
     border-style: solid;
     border-width: 1px;
-    border-color: rgba(0, 0, 0, 0.05);
-    float: right;
+    border-color: rgba(0, 0, 0, 0.2);
+    /* float: right; */
     display: block;
     width: 100%;
     color: black;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    font-size: 12px;
+}
+
+#question-text {
+    background-color: transparent;
 }
 
 /* =================================== POSTS =================================== */

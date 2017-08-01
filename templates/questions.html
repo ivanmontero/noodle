@@ -45,18 +45,19 @@
                         </div>
                         {% endfor %}
                     </span>
-
+                    
                     <span class="yours">
                         <div class = "expand">
                         <img src="/res/img/fsm3d.gif" height='100px' width='100px'>
                         <p>Ask a Question</p>
                         <!--#<label for="question">Question: <input type="text" name="question" /></label> -->
                         </div>
+                         <h2 id="your-question-h2">Your Questions:</h2>
                         <div class ="container">
-                            <h2>Your Questions:</h2>
+                            
                             {% for question in yourquestions %}
                             <div class = "yourquestion">
-                                <p>{{ question.question }}</p>
+                                <p class="question-text">{{ question.question }}</p>
                             </div>
                             {% endfor %}
                         </div>
