@@ -30,4 +30,10 @@ class ShareHandler(webapp2.RequestHandler):
         self.response.out.write(template.render(data))
     
     def post(self):
-        pass
+        code = self.request.get("code")
+        if code:
+            content_key = Code(content=code).put()
+
+class Code(ndb.Model):
+    content_id = ndb.StringProperty()
+    content = ndb.StringProperty()
