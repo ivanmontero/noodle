@@ -144,7 +144,7 @@ class GetQuestionHandler(webapp2.RequestHandler):
 
         
 
-class NewAnswerHander(webapp2.RequestHandler):
+class NewAnswerHandler(webapp2.RequestHandler):
     def post(self):
         logging.info("Got a new answer!")
         user = users.get_current_user()
@@ -159,10 +159,11 @@ class NewAnswerHander(webapp2.RequestHandler):
                 user_model.put()
                 logging.info("New user created!")
             # Test for valid input
-            if question_id and content:
+            question = Question.get_by_id(int(question_id))
+            if question and content:
                 answer_key = Answer(author_id=user_model.user_id, author_nickname=user_model.nickname,
                     question_id=question_id, content=content).put()
-                user_model.questions.append(question_key)
                 logging.info("New answer created!")
+                question.answers.append(answer_key)
                 user_model.answers.append(question_key)
                 user_model.put()
