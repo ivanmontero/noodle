@@ -12,27 +12,31 @@ from google.appengine.ext import ndb
 # Get jinja environment from main
 from main import jinja_environment
 
+import datetime
+
+# TODO: Find a way to add time
+
 class User(ndb.Model):
     user_id = ndb.StringProperty()      # user.user_id()
-    name = ndb.StringProperty()         # user.nickname()
+    nickname = ndb.StringProperty()         # user.nickname()
+    questions = ndb.KeyProperty(repeated=True)
+    answers = ndb.KeyProperty(repeated=True)
     # question = ndb.StringProperty()
 
 class Question(ndb.Model):  
-    author_id = ndb.StringProperty()       # user.user_id()
     author_key = ndb.KeyProperty()      # (user model).key()
     question = ndb.StringProperty()     # the question
     content = ndb.StringProperty()      # text
     # media = ndb.BlobProperty()          # Images
-    date = ndb.DateProperty()           # Date posted
+    # date = ndb.DateProperty()           # Date posted
     # votes = ndb.IntegerProperty()       
     answers = ndb.KeyProperty(repeated=True)
 
 class Answer(ndb.Model):  
-    author_id = ndb.StringProperty()       # user.user_id()
     author_key = ndb.KeyProperty()      # (user model).key()
     content = ndb.StringProperty()      # text
     # media = ndb.BlobProperty()          # Images
-    date = ndb.DateProperty()           # Date posted
+    # date = ndb.DateProperty()           # Date posted
     # votes = ndb.IntegerProperty()       
     question = ndb.KeyProperty()
 
@@ -69,6 +73,27 @@ class QuestionHandler(webapp2.RequestHandler):
 class NewQuestionHandler(webapp2.RequestHandler):
     def post(self):
         logging.info("Got a new question!")
+        # Check if user is logged in
+        user = users.get_current_user()
+        if user:
+            # Retrieve data
+            question = self.request.get("question")
+            content = self.request.get("content")
+            # date = datetime.
+
+            # Test if user object exists
+            user_model = User.query(User.user_id == user.user_id()).get()
+            if not user_model:
+                # Create user object for new user
+                user_model = User(user_id=user.user_id(), nickname=user.nickname())
+                user_model.put()
+                logging.info("New user created!")
+            # Test for valid input
+            if question and content:
+                question_key = Question(author_key=user_model.key, question=question, content=content).put()
+                user_model.answers.append(question_key)
+                logging.info("New question created!")
+                user_model.put()
 
 class NewAnswerHander(webapp2.RequestHandler):
     def post(self):
