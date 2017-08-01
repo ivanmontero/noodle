@@ -4,9 +4,7 @@ $(document).ready(function() {
         // somehow get the question from python (and tell python to load it)
         $.ajax({
             url: "/questions/getquestion",
-            data: {
-                "question_id" :  $(this).attr("id")
-            }
+            data: { "question_id" :  $(this).attr("id") }
         }).then(function(result) {
             // Set overlay html with question. The result will be html
             $("#overlay").html( result );

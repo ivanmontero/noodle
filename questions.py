@@ -139,7 +139,7 @@ class GetQuestionHandler(webapp2.RequestHandler):
         if question:
             logging.info("question id is valid")
             data = question.to_dict()
-            template = jinja_environment.get_template('templates/questions-overlay.html')
+            template = jinja_environment.get_template('templates/questions-post-overlay.html')
             self.response.out.write(template.render(data))
 
         
