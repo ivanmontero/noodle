@@ -1,8 +1,20 @@
 <!--  Test overlay  -->
 <div id="new-top-space"></div>
 <div id="new-container"> 
-    <p color="white"> Hello!!!!!! </p>
-    <p color="white">Write a Question Down Below!</p>
-    <textarea row="10" col="100" id="newquestion"></textarea>
+    <div id="question-creation">
+        <!-- <p color="white"> Hello!!!!!! </p> -->
+        <h1 id="new-question-text">Write a Question Down Below!</h1>
+        <form id="question-input">
+            <!-- TODO: POST  -->
+            <p>Title</p>
+            <input type="text" id="newquestiontitle"></input>
+            <br>
+            <br>
+            <p>Content</p>
+            <textarea row="10" col="100" id="newquestioncontent"></textarea>
+            <br>
+            <input type="button" id="submit-question">Submit</button>
     <!--  TODO: create div item for all items  -->
+        </form>
+    </div>
 </div>
