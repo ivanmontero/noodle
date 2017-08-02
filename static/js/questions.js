@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $(".question").click(function() {
+    $(document).on("click", ".question", function() {
         // console.log($(this).attr("id"));      // Getting the ID of the clicked question
         // somehow get the question from python (and tell python to load it)
         $.ajax({
@@ -8,22 +8,40 @@ $(document).ready(function() {
         }).then(function(result) {
             // Set overlay html with question. The result will be html
             // OLD
-            // $("#overlay").html( result );
+            $("#overlay").html( result );
             // NEW
-            $("#overlay").html("")
-                         .append(htmlToElements(result));
+            // $("#overlay").html("")
+            //              .append(htmlToElements(result));
             
         });
         $("#overlay").css("display", "block");
     });
-    $(".ask").click(function() {
+    $(document).on("click", ".ask", function() {
         $.ajax("/questions/createquestion").then(function(result) {
             // Set overlay html with question. The result will be html
-            // $("#overlay").html( result );
-            $("#overlay").html("")
-                         .append(htmlToElements(result));
+            $("#overlay").html( result );
+            // $("#overlay").html("")
+            //              .append(htmlToElements(result));
         });
         $("#overlay").css("display", "block");
+    });
+    $(document).on('click', '#submit-question', function(){
+        console.log("Question submit");
+        $.post('/questions/newquestion', {
+            "question" : $("#newquestiontitle").val(),
+            "content" : $("#newquestioncontent").val()
+        });
+        $("#overlay").css("display", "none");
+        // PROBLEMATIC
+        setTimeout(function() {
+                $.ajax("/questions/getquestionshtml").then(function(result) {
+                console.log(result);
+                $(".recent").html(result);
+            });
+        } , 1000);
+        
+    // what you want to happen when mouseover and mouseout 
+    // occurs on elements that match '.dosomething'
     });
     // $.ajax("/questions/getquestionshtml").then(function(result) {
     //     console.log(result);
@@ -37,7 +55,7 @@ $(document).ready(function() {
     //     });
     // });
     // TODO: transition
-    $("#overlay").click(function() {
+    $(document).on("click", "#overlay", function() {
         if(!$(event.target).is('.post-item') && !$(event.target).parents('.post-item').is('.post-item') &&
              !$(event.target).is('#question-creation') && !$(event.target).parents('#question-creation').is('#question-creation')) {
             $("#overlay").css("display", "none");
@@ -45,16 +63,16 @@ $(document).ready(function() {
     });
 });
 
-function submitQuestion() {
-    // console.log("Question submit");
-    // console.log($("#newquestiontitle").val());
-    // console.log($("#newquestioncontent").val());
-    $.post('/questions/newquestion', {
-        "question" : $("#newquestiontitle").val(),
-        "content" : $("#newquestioncontent").val()
-    });
-    $("#overlay").css("display", "none");
-}
+// function submitQuestion() {
+//     // console.log("Question submit");
+//     // console.log($("#newquestiontitle").val());
+//     // console.log($("#newquestioncontent").val());
+//     $.post('/questions/newquestion', {
+//         "question" : $("#newquestiontitle").val(),
+//         "content" : $("#newquestioncontent").val()
+//     });
+//     $("#overlay").css("display", "none");
+// }
 
 function htmlToElements(html) {
     var template = document.createElement('template');

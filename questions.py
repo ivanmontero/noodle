@@ -105,8 +105,8 @@ class NewQuestionHandler(webapp2.RequestHandler):
             # Retrieve data
             question = self.request.get("question")
             content = self.request.get("content")
-            # logging.info(question)
-            # logging.info(content)
+            logging.info(question)
+            logging.info(content)
             # date = datetime.
 
             # Test if user object exists
