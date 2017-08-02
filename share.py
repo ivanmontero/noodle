@@ -29,29 +29,38 @@ class ShareHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/share.html')
         self.response.out.write(template.render(data))
 
-    def post(self):
+    def post(self):    
         logging.info("got some code")
         code = self.request.get("code")
+        logging.info(code)
         if code:
             content_key = Code(content=code).put()
+            logging.info(content_key)
             unique_id = content_key.id()
-            logging.info("id = " + unique_id)
-        self.response.write("Hello!!")
+            logging.info(unique_id)
+            logging.info("id = " + str(unique_id))
+            self.response.write(unique_id)
+            """
+        template = jinja_environment.get_template('templates/share.html')
+        self.response.out.write(template.render(unique_id=unique_id))
+        """
     
 class Code(ndb.Model):
     content = ndb.StringProperty()
 
 class GetCode(webapp2.RequestHandler):
     def get(self):
-        logging.info("retrieving the key")
-        code_id = self.request.get("code_id")
-        logging.info(code_id)
+        logging.info("retrieving now")
+        id = int(self.request.get("key"))
+        if id:
+            logging.info("retrieving the key")
+            file = Code.query().get_by_id(id)
+            logging.info(file)
+
+            if file:
+                logging.info("id is valid")
+        self.response.out.write(json.dumps(file=file))
+
+
         
-        code = Code.get_by_id(int(code_id))
-
-        if code_id:
-            logging.info("id is valid")
-
-        template = jinja_environment.get_template('templates/share.html')
-        self.response.out.write(template.render(id=code_id))
    

@@ -1,4 +1,5 @@
 body {
+    background-color: rgba(0, 0, 0, 0.4);
     width: 100vw;
     height: 100vh;
     margin: 0;
@@ -28,10 +29,12 @@ form {
 }
 
 .container {
+    margin-top: 9%;
+    margin-bottom: auto;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.90);
     width: 75%;
     height: 60%;
 }
@@ -42,11 +45,15 @@ textarea {
 }
 
 .background {
-    background-color: rgba(0, 0, 0, 0.65);
+    background-color: rgba(0, 0, 0, 0);
     height: 100%;
     width: 100%;
 }
 
 p {
     color: white;
+}
+
+.title {
+    padding-top: 2%;
 }
