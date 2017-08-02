@@ -5,5 +5,10 @@
         <h1 id="overlay-question">Q: {{ question }}</h1>
         <p id="overlay-content">{{ content }}</p>
     </div> 
-    <!--  TODO: create div item for all items  -->
+    <!--  TODO: create div item for all answers  -->
+    {% for answer in answers %}
+    <div class="answer-item">
+        <p id="answer-content">{{answer.content}}</p>
+    </div>
+    {% endfor %}
 </div>

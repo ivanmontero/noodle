@@ -43,7 +43,7 @@ class Answer(ndb.Model):
     # date = ndb.DateProperty()           # Date posted
     # votes = ndb.IntegerProperty()       
     # question = ndb.KeyProperty()
-    question = ndb.StringProperty()   # Store using ID
+    question_id = ndb.StringProperty()   # Store using ID
 
 # Helper method to attach ID's with their questions
 def formatRetrievableQuestions(questions):
@@ -124,14 +124,14 @@ class NewQuestionHandler(webapp2.RequestHandler):
                 logging.info("New question created!")
                 user_model.put()
 
-class GetQuestionsHandler(webapp2.RequestHandler):
-    def get(self):
-        logging.info("GET questions recieved!")
-        result = [i.to_dict() for i in Question.query().fetch()]
-        # Remove all attached answer keys so an error isn't thrown
-        for i in result:
-            del i["answers"]
-        self.response.write(json.dumps(result))
+# class GetQuestionsHandler(webapp2.RequestHandler):
+#     def get(self):
+#         logging.info("GET questions recieved!")
+#         result = [i.to_dict() for i in Question.query().fetch()]
+#         # Remove all attached answer keys so an error isn't thrown
+#         for i in result:
+#             del i["answers"]
+#         self.response.write(json.dumps(result))
 
 class GetQuestionsHTMLHandler(webapp2.RequestHandler):
     def get(self):
@@ -162,13 +162,24 @@ class GetQuestionHTMLHandler(webapp2.RequestHandler):
         # TODO: Get data from the question with the id passed and populate the
         # overlay template with the values in the question then return the html
         # in the response.
+
+        # TODO: Add questions to the post overlay
         question = Question.get_by_id(int(question_id))
         # self.response.write(question_id)
         if question:
             logging.info("question id is valid")
             data = question.to_dict()
+            # answers = data["answers"]
+            # danswers = []
+            # for answer in answers:
+            #     answer.get().to_dict()
+            # # Not sure if answers should have their own ID's
+            data["answers"] = [i.get().to_dict() for i in data["answers"]]
+            logging.info(data["answers"])
             template = jinja_environment.get_template('templates/questions-post-overlay.html')
             self.response.out.write(template.render(data))
+
+# class GetQuestionAnswers
         
 class NewAnswerHandler(webapp2.RequestHandler):
     def post(self):
@@ -191,5 +202,6 @@ class NewAnswerHandler(webapp2.RequestHandler):
                     question_id=question_id, content=content).put()
                 logging.info("New answer created!")
                 question.answers.append(answer_key)
-                user_model.answers.append(question_key)
+                question.put()
+                user_model.answers.append(answer_key)
                 user_model.put()

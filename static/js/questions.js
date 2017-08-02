@@ -27,6 +27,8 @@ $(document).ready(function() {
     });
     $(document).on('click', '#submit-question', function(){
         console.log("Question submit");
+        // console.log($("#newquestiontitle").val());
+        // console.log($("#newquestioncontent").val());
         $.post('/questions/newquestion', {
             "question" : $("#newquestiontitle").val(),
             "content" : $("#newquestioncontent").val()
@@ -63,6 +65,12 @@ $(document).ready(function() {
             $("#overlay").css("display", "none");
         }
     });
+
+    // $(window).resize(function() {
+    //     $('#overlay').height(function(index, height) {
+    //         return window.innerHeight - $(this).offset().top;
+    //     });
+    // });
 });
 
 // function submitQuestion() {
@@ -76,8 +84,8 @@ $(document).ready(function() {
 //     $("#overlay").css("display", "none");
 // }
 
-function htmlToElements(html) {
-    var template = document.createElement('template');
-    template.innerHTML = html;
-    return template.content.childNodes;
-}
+// function htmlToElements(html) {
+//     var template = document.createElement('template');
+//     template.innerHTML = html;
+//     return template.content.childNodes;
+// }
