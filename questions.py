@@ -136,8 +136,15 @@ class GetQuestionsHandler(webapp2.RequestHandler):
 class GetQuestionsHTMLHandler(webapp2.RequestHandler):
     def get(self):
         logging.info("GET questions HTML recieved!")
-        result = [i.to_dict() for i in Question.query().fetch()]
+        questions = Question.query().fetch()
+        # result = [i.to_dict() for i in Question.query().fetch()]
         # Remove all attached answer keys so an error isn't thrown
+        # dres["id"] = i.key.id()
+        result=[]
+        for i in questions:
+            dres = i.to_dict()
+            dres["id"] = i.key.id()
+            result.append(dres)
         for i in result:
             del i["answers"]
             del i["author_id"]

@@ -34,7 +34,9 @@ $(document).ready(function() {
         $("#overlay").css("display", "none");
         // PROBLEMATIC
         setTimeout(function() {
-                $.ajax("/questions/getquestionshtml").then(function(result) {
+            // SHOW DESCRIPTION NO LONGER WORKS ON ELEMENTS AFTER SUBMIT
+            // FIXED
+            $.ajax("/questions/getquestionshtml").then(function(result) {
                 console.log(result);
                 $(".recent").html(result);
             });
