@@ -4,6 +4,7 @@
         <link rel="stylesheet" href="/res/css/nav.css"> 
         <link rel="stylesheet" href="/res/css/share.css"> 
         <script src="/res/js/nav.js"></script>
+        <script src="/res/js/share.js"></script>
     </head>
     <body>
         <!--=============================== NAVIGATION =============================== -->
@@ -27,22 +28,22 @@
             </span>
         </div>
         <!--=============================== NAVIGATION =============================== -->
+        <div class="background">
+            <div class = "container">
+                <form method="post" action="">
+                    <div class ="title">
+                    <label for="code">Paste Your Code Here: 
+                    </div>
+                    <br/>   
+                    <br/>
+                    <textarea id="code"></textarea>
+                    <br/>
+                    <button id="submit" onclick="sendCode()">Submit</button>
 
-        <br/>
-        <br/>
-        <div class = "container">
-            <form method="post" action="">
-                <div class ="title">
-                <label for="code">Paste Your Code Here: 
-                </div>
-                <br/>   
-                <br/>
-                <textarea rows="30" cols="120" id="code"></textarea>
-                <p><input type="submit" value ="Submit"></p>
-
-                <div class ="customLink">
-                <p>Share your code using this link: be-noodley.appspot.com/share?key={{ id }}</p>
-                </div>
+                    <div class ="customLink">
+                    <p>Share your code using this link: be-noodley.appspot.com/share?key=id</p>
+                    </div>
+            </div>
         </div>
     </body>
 </html>
