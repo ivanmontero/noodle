@@ -47,6 +47,9 @@ $(document).ready(function() {
     // what you want to happen when mouseover and mouseout 
     // occurs on elements that match '.dosomething'
     });
+    $(document).scroll(function() {
+        $("#overlay").height($(document).height());
+    });
     // $.ajax("/questions/getquestionshtml").then(function(result) {
     //     console.log(result);
     //     $(".recent").html(result);
@@ -60,10 +63,10 @@ $(document).ready(function() {
     // });
     // TODO: transition
     $(document).on("click", "#overlay", function() {
-        if(!$(event.target).is('.post-item') && !$(event.target).parents('.post-item').is('.post-item') &&
-             !$(event.target).is('#question-creation') && !$(event.target).parents('#question-creation').is('#question-creation')) {
+        // if(!$(event.target).is('.post-item') && !$(event.target).parents('.post-item').is('.post-item') &&
+        //      !$(event.target).is('#question-creation') && !$(event.target).parents('#question-creation').is('#question-creation')) {
+        if(!$(event.target).is('.not-redirectable') && !$(event.target).parents('.not-redirectable').is('.not-redirectable'))
             $("#overlay").css("display", "none");
-        }
     });
 
     // $(window).resize(function() {

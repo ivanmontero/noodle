@@ -69,7 +69,10 @@ body {
 
 #post-container {
     margin: 0 auto;
-    top: 5%;
+     position: fixed; 
+     left: 12.5%; 
+    /*  nav height (5) + space from nav (5)  */
+    top: 10%;
     width: 75%;
     height: 95%;
     text-align: center;
@@ -89,6 +92,24 @@ body {
 
 #overlay-content {
     color: white;
+}
+
+#answer-content {
+    color: white;
+    padding: 1%;
+    /* margin-top: 0; */
+    /* padding-top: 1%; */
+}
+
+.answer-item {
+    background-color: rgba(0, 0, 0, 0.65); 
+    /* padding: 1%; */
+
+}
+
+#answer-area {
+    overflow-y: scroll;
+    height:
 }
 
 /* =================================== OVERLAY =================================== */

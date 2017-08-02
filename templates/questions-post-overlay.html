@@ -1,14 +1,16 @@
 <!--  Test overlay  -->
 <div id="post-top-space"></div>
 <div id="post-container"> 
-    <div class="post-item">
+    <div class="post-item not-redirectable">
         <h1 id="overlay-question">Q: {{ question }}</h1>
         <p id="overlay-content">{{ content }}</p>
     </div> 
     <!--  TODO: create div item for all answers  -->
-    {% for answer in answers %}
-    <div class="answer-item">
-        <p id="answer-content">{{answer.content}}</p>
+    <div id="answer-area" class="not-redirectable">
+        {% for answer in answers %}
+        <div class="answer-item">
+            <p id="answer-content">{{ answer.content }}</p>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
