@@ -4,7 +4,7 @@
 
 body {
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
     margin: 0;
     /* display: block; */
     background-color:rgba(0, 0, 0, 0.05);
@@ -24,14 +24,14 @@ body {
 }
 /*  NEW QUESTION  */
 #new-top-space {
-    height: 5%;
+    height: 4vh;
 }
 
 #new-container {
     margin: 0 auto;
     top: 5%;
     width: 75%;
-    height: 95%;
+    height: 90vh;
     text-align: center;
 }
 
