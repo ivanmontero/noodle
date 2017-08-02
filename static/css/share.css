@@ -18,11 +18,35 @@ form {
 
 .title {
     font-weight: bold;
-    color: #A7226E;
+    color: white;;
     font-size: 30px;
 
 }
 
 .customLink {
     visibility: visible;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 75%;
+    height: 60%;
+}
+
+textarea {
+    width: 80%;
+    height: 65%;
+}
+
+.background {
+    background-color: rgba(0, 0, 0, 0.65);
+    height: 100%;
+    width: 100%;
+}
+
+p {
+    color: white;
 }
