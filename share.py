@@ -28,6 +28,15 @@ class ShareHandler(webapp2.RequestHandler):
             data["login_url"] = users.create_login_url('/share')
         template = jinja_environment.get_template('templates/share.html')
         self.response.out.write(template.render(data))
+
+    def post(self):
+        logging.info("got some code")
+        code = self.request.get("code")
+        if code:
+            content_key = Code(content=code).put()
+            unique_id = content_key.id()
+            logging.info("id = " + unique_id)
+        self.response.write("Hello!!")
     
 class Code(ndb.Model):
     content = ndb.StringProperty()
@@ -44,13 +53,5 @@ class GetCode(webapp2.RequestHandler):
             logging.info("id is valid")
 
         template = jinja_environment.get_template('templates/share.html')
-        self.response.out.write(template.render(id=result))
-
-class PostCode(webapp2.RequestHandler):
-    def post(self):
-        logging.info("got some code")
-        code = self.request.get("code")
-        if code:
-            content_key = Code(content=code).put()
-            unique_id = content_key.id()
-            logging.info("id = " + unique_id)
+        self.response.out.write(template.render(id=code_id))
+   
