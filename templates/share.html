@@ -31,22 +31,57 @@
                 <span class="redirect-item hvr-bounce-in"><div class="redirect-text-container"><a class="redirect-text" href="/questions" id="questions-redirect">Questions</a></div></span>
             </span>
         </div>
+        <div class="background-img">
+            <br/>
+            <br/>
+            <br/>
+            <div id="share-intro">
+                <div id="intro-title">
+                    <p>Welcome to Noodle's CodeShare</p>
+                </div>
+                <div id="intro-content">
+                    <p>CodeShare was built for novice programmers to easily share code with other collaborators.
+                        Each text file is provided with a unique ID so your code will always be open for sharing. No strangers. No restrictions. No rules.
+                    </p>
+                </div>
+            </div>
+            <br/>
+            <br/>
+            <div id="start-button">
+                <input type="button" id="start" value="Start Here">
+            </div>
+        </div>
+        
+        </div>
         <!--=============================== NAVIGATION =============================== -->
-        <div class="background">
-            <div class = "container">
-                <form method="post" action="">
-                    <div class ="title">
-                    <label for="code">Paste Your Code Here: 
-                    </div>
-                    <br/>   
-                    <br/>
-                    <textarea name="code" id="code"> {{ shared }} </textarea>
-                    <br/>
-                    <input type="button"  id="submit" value="Submit">
 
-                    <div class ="customLink">
-                    <p id="share-link">Share your code using this link: be-noodley.appspot.com/share?key=</p>
+        <div id="code-share-hide">
+            <div class="background">
+                <span class="left-how-to">
+                    <div class ="left-container">
+                        <div class= "title">
+                            <div class ="left-content">
+                            </div>
+                        </div>
                     </div>
+                </span>
+                <span class="right-textbox">
+                    <div class = "container">
+                        <form method="post" action="">
+                            <div class ="title">
+                            <label for="code">Paste Your Code Here: 
+                            </div>
+                            <br/>   
+                            <br/>
+                            <textarea name="code" id="code"> {{ shared }} </textarea>
+                            <br/>
+                            <input type="button"  id="submit" value="Submit">
+
+                            <div class ="customLink">
+                            <p id="share-link">Share your code using this link: be-noodley.appspot.com/share?key=</p>
+                            </div>
+                    </div>
+                </span>
             </div>
         </div>
     </body>

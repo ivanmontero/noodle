@@ -19,6 +19,25 @@ body {
     background-image: url("../img/flying_spaghetti.png");
 }
 
+.image-circle {
+    display: inline-block;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.image-circle img {
+    height: auto;
+    width: 100%;
+    margin-left: -50px;
+}
+.about-section {
+    text-align: center;
+}
+
+/* NAVIGATION */
 #navigation {
     position: relative;
     /* float: right; */
@@ -92,7 +111,7 @@ body {
 }
 
 #logo-lower-space {
-    height: 90%;
+    height: 55%;
 }
 
 #logo {

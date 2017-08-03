@@ -37,9 +37,10 @@ class ShareHandler(webapp2.RequestHandler):
             dshared = code.to_dict()
             shared = dshared['content']
             logging.info(dshared['content'])
-            self.response.out.write(template.render(shared=shared))            
+            data['shared'] = shared
+            self.response.out.write(template.render())            
         else:
-            self.response.out.write(template.render())
+            self.response.out.write(template.render(data))
 
         
     def post(self):    

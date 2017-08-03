@@ -1,5 +1,4 @@
 body {
-    background-color: rgba(0, 0, 0, 0.4);
     width: 100vw;
     height: 100vh;
     margin: 0;
@@ -56,4 +55,62 @@ p {
 
 .title {
     padding-top: 2%;
+}
+
+.right-textbox {
+    margin: 3%;
+    margin-right: 0;
+    float: right;
+    position: block;
+    width: 50%;
+}
+
+.background-img {
+    background-image: url("/res/img/Amazing-night-sky.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 80%;
+    width: 100%;
+    height: 80%;
+    z-index: -1;
+}
+
+#start-button {
+    text-align: center;
+    top: 0;
+    z-index: 1;
+}
+
+#intro-title {
+    font-weight: bolder;
+    font-size: 32px;
+    margin: 0;
+    padding: 0;
+}
+
+#share-intro {
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 8%;
+    float: center;
+    position: center;
+    text-align: center;
+    padding: 0;
+}
+
+#intro-content p{
+    text-align: center;
+    float: center;
+    display: block;
+}
+
+#intro-content {
+    text-align: center;
+    float: center;
+    display: block;
+}
+
+#code-share-hide {
+    display: none;
+
 }
