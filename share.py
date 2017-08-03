@@ -12,6 +12,7 @@ from google.appengine.ext import ndb
 # Get jinja environment from main
 from main import jinja_environment
 
+
 class ShareHandler(webapp2.RequestHandler):
     def get(self):
         user = users.get_current_user()
@@ -26,8 +27,18 @@ class ShareHandler(webapp2.RequestHandler):
             data["user_id"] = user.user_id()
         else:
             data["login_url"] = users.create_login_url('/share')
-        template = jinja_environment.get_template('templates/share.html')
-        self.response.out.write(template.render(data))
+            
+        key = self.request.get("key")
+        if key:
+            self.response.out.write(key)
+            logging.info("retrieving")
+            file = Code.query().get_by_id(key)
+            logging.info(file)
+            self.response.out.write(jscon.dumps(file=file))
+        else:
+            template = jinja_environment.get_template('templates/share.html')
+            self.response.out.write(template.render(data))
+        
 
     def post(self):    
         logging.info("got some code")
@@ -40,26 +51,9 @@ class ShareHandler(webapp2.RequestHandler):
             logging.info(unique_id)
             logging.info("id = " + str(unique_id))
             self.response.write(unique_id)
-            """
-        template = jinja_environment.get_template('templates/share.html')
-        self.response.out.write(template.render(unique_id=unique_id))
-        """
     
 class Code(ndb.Model):
     content = ndb.StringProperty()
-
-class GetCode(webapp2.RequestHandler):
-    def get(self):
-        logging.info("retrieving now")
-        id = int(self.request.get("key"))
-        if id:
-            logging.info("retrieving the key")
-            file = Code.query().get_by_id(id)
-            logging.info(file)
-
-            if file:
-                logging.info("id is valid")
-        self.response.out.write(json.dumps(file=file))
 
 
         
