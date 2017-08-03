@@ -29,7 +29,7 @@
                 <span class="redirect-item hvr-buzz"><div class="redirect-text-container"><a class="redirect-text" href="/questions" id="active">Questions</a></div></span>
             </span>
         </div>
-        <!--=============================== NAVIGATION =============================== -->
+        <!-- =============================== NAVIGATION =============================== -->
          <!-- <hr>  -->
         <div id="overlay"></div>
         <div class="box">
@@ -37,14 +37,11 @@
 
                 <div class ="visiblequestion">
                     <span class ="recent">
-                        <h2>Recent Questions:</h2>
-                        {% for question in questions %}
-                        <!--  Make clickable, and fire a jQuery event that sends a get request with the current id  -->
-                        <div class="question" id="{{question.id}}">
-                            <h1 class="question-list-text"><span class="q">Q:</span> {{ question.question }}</h1>
-                            <p class="question-list-author">{{ question.author_nickname }}</p>
-                        </div>
-                        {% endfor %}
+                        <script>
+                            $.ajax("/questions/getquestionshtml").then(function(result) {
+                                $(".recent").html(result);
+                            });  
+                        </script>
                     </span>
                     
                     <span class="yours">

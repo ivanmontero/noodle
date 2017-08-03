@@ -26,7 +26,7 @@ from wiki import *
 app = webapp2.WSGIApplication([
     ('/', IndexHandler),
     ('/questions', QuestionHandler),
-    ('/questions/createquestion', CreateQuestionHandler),
+    ('/questions/createquestionhtml', CreateQuestionHTMLHandler),
     ('/questions/newquestion', NewQuestionHandler),
     # ('/questions/getquestions', GetQuestionsHandler),
     ('/questions/getquestionshtml', GetQuestionsHTMLHandler),

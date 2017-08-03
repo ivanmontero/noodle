@@ -58,6 +58,7 @@ def formatRetrievableQuestions(questions):
 
 class QuestionHandler(webapp2.RequestHandler):
     def get(self):
+        logging.info()
         # TO RETRIEVE QUESTION MODEL ASSOCIATED WITH QUESTION DIV:
         # logging.info(Question.get_by_id(5348024557502464).to_dict())
         user = users.get_current_user()
@@ -89,7 +90,7 @@ class QuestionHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/questions.html')
         self.response.out.write(template.render(data))
     
-class CreateQuestionHandler(webapp2.RequestHandler):
+class CreateQuestionHTMLHandler(webapp2.RequestHandler):
     def get(self):
         logging.info("CREATE question called!")
         # Test if user is logged in. Redirect to login if not logged in

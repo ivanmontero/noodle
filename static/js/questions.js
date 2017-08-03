@@ -18,7 +18,7 @@ $(document).ready(function() {
         $("#overlay").css("display", "block");
     });
     $(document).on("click", ".ask", function() {
-        $.ajax("/questions/createquestion").then(function(result) {
+        $.ajax("/questions/createquestionhtml").then(function(result) {
             // Set overlay html with question. The result will be html
             $("#overlay").html( result );
             // $("#overlay").html("")
