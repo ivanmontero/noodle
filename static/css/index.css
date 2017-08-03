@@ -19,6 +19,13 @@ body {
     background-image: url("../img/flying_spaghetti.png");
 }
 
+#about-title {
+    font-weight: bolder;
+    font-size: 32px;
+    padding: 0;
+    margin-top: 0;
+}
+
 .image-circle {
     display: inline-block;
     position: relative;
@@ -31,10 +38,17 @@ body {
 .image-circle img {
     height: auto;
     width: 100%;
-    margin-left: -50px;
 }
 .about-section {
     text-align: center;
+}
+
+#Jenessa {
+    width: 100%;
+}
+
+#Ivan {
+    width: 100%;
 }
 
 /* NAVIGATION */

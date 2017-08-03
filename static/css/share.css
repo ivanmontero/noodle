@@ -16,10 +16,13 @@ form {
     text-align: center;
 }
 
-.title {
+.title p {
+    padding: 0;
+    margin-top: 0;
+    margin-left: 1%;
     font-weight: bold;
-    color: white;;
-    font-size: 30px;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 25px;
 
 }
 
@@ -28,29 +31,40 @@ form {
 }
 
 .container {
-    margin-top: 9%;
-    margin-bottom: auto;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.90);
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0);
     width: 75%;
     height: 60%;
 }
 
 textarea {
-    width: 80%;
-    height: 65%;
+    text-align: left;
+    width: 120%;
+    height: 90%;
+    margin-left: 0;
+    padding: 0;
+    margin: 0;
+    float: left;
 }
 
 .background {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.05);
     height: 100%;
     width: 100%;
 }
 
+form {
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-left: 0;
+}
+
 p {
     color: white;
+}
+
+.customLink p {
+    color: black;
 }
 
 .title {
@@ -58,23 +72,44 @@ p {
 }
 
 .right-textbox {
-    margin: 3%;
     margin-right: 0;
-    float: right;
+    /* change float and width on click */
+    float: left;
     position: block;
-    width: 50%;
+    width: 70%;
 }
 
+.left-how-to {
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-right: 4.5%;
+    margin-top: 2.5%;
+    float: right;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.5);
+    border-width: 0.5px;
+    width: 25%;
+    height: 27%;
+
+}
+
+#button-link {
+    padding: 0;
+    margin: 0;
+}
+
+/* MAIN MENU */
 .background-img {
     background-image: url("/res/img/Amazing-night-sky.jpg");
     background-repeat: no-repeat;
-    background-size: 100% 80%;
+    background-size: 100% 100%;
     width: 100%;
     height: 80%;
     z-index: -1;
 }
 
 #start-button {
+    margin: 0;
+    padding: 0;
     text-align: center;
     top: 0;
     z-index: 1;
@@ -91,7 +126,7 @@ p {
     width: 55%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 8%;
+    margin-top: 12%;
     float: center;
     position: center;
     text-align: center;
@@ -110,7 +145,18 @@ p {
     display: block;
 }
 
+#share-main-menu {
+    display: block;
+}
+
 #code-share-hide {
     display: none;
+}
 
+.background-box {
+    background-color:rgba(0, 0, 0, 0.05);
+}
+
+#info-button {
+    position: relative;
 }
