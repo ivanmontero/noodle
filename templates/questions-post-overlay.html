@@ -1,9 +1,12 @@
 <!--  Test overlay  -->
 <div id="post-top-space"></div>
 <div id="post-container"> 
+    <!--  Somehow pass question ID in this  -->
     <div class="post-item not-redirectable">
+        <p id="current-question-id">{{ question_id }}</p>
         <h1 id="overlay-question">Q: {{ question }}</h1>
         <p id="overlay-content">{{ content }}</p>
+        <p id="question-author">{{ author_nickname }}</p>
     </div> 
     <!--  TODO: create div item for all answers  -->
     <div id="answer-area" class="not-redirectable">
@@ -12,5 +15,11 @@
             <p id="answer-content">{{ answer.content }}</p>
         </div>
         {% endfor %}
+
+    </div>
+    <div id="answer-creation">
+        <textarea id="new-answer" class="not-redirectable"></textarea>
+        <br>
+        <input type="button" id="submit-answer" value="Submit" class="not-redirectable">
     </div>
 </div>
