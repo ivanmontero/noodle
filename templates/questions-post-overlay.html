@@ -7,13 +7,15 @@
         <h1 id="overlay-question">Q: {{ question }}</h1>
         <p id="overlay-content">{{ content }}</p>
         <p id="question-author">{{ author_nickname }}</p>
+        <p id="question-date">{{ date }}</p>
     </div> 
     <!--  TODO: create div item for all answers  -->
     <div id="answer-area" class="not-redirectable">
         {% for answer in answers %}
         <div class="answer-item">
-            <p id="answer-content">{{ answer.content }}</p>
-            <p id="question-author">{{ author_nickname }}</p>
+            <p class="answer-content">{{ answer.content }}</p>
+            <p class="answer-author">{{ answer.author_nickname }}</p>
+            <p class="answer-date">{{ answer.date }}</p>
         </div>
         {% endfor %}
 

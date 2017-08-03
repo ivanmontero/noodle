@@ -82,7 +82,9 @@ body {
 
 .post-item {
     background-color: rgba(0, 0, 0, 0.65); 
-    padding: 1%;
+    max-height: 40%;
+    overflow-y: scroll;
+    /* padding: 1%; */
 }
 
 #overlay-question {
@@ -96,7 +98,7 @@ body {
     margin-bottom: 0px;
 }
 
-#answer-content {
+.answer-content {
     color: white;
     padding: 1%;
      margin-bottom: 0px; 
@@ -112,7 +114,8 @@ body {
 
 #answer-area {
     overflow-y: scroll;
-    max-height: 47vh; 
+    max-height: 40vh; 
+    margin-top: 1%;
 }
 
 #answer-creation {
@@ -179,7 +182,8 @@ hr {
 
 .container {
     width: 101%;
-    height: auto;
+    max-height: 60vh;
+    overflow-y: scroll;
     /* background-color: white; */
     width: 100%;
     /* margin-top: 200px; */
@@ -188,6 +192,12 @@ hr {
     /* border-width: 1px; */
     /* text-align: center; */
 }
+#your-question-h2 {
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    text-align: center;
+}
+
 #your-question-h2 {
     border: none;
     background-color: rgba(0, 0, 0, 0);
@@ -265,6 +275,7 @@ hr {
     margin-top: 1%;
     margin-bottom: 1%;
     font-size: 12px;
+    word-wrap: break-word;
 }
 
 #question-text {
@@ -272,19 +283,55 @@ hr {
 }
 
 .question-list-author {
-    /* float: right; */
+    float: right; 
     text-align: right;
     font-size: 13px;
     color: rgba(0, 0, 0, 0.5);
     margin: 0px;
 }
 
+.question-list-date {
+    float: left; 
+    text-align: left;
+    font-size: 9px;
+    color: rgba(0, 0, 0, 0.5);
+    margin: 0px;
+    padding-top: 5px;
+}
+
 #question-author {
-    /* float: right; */
+     float: right; 
     text-align: right;
     font-size: 13px;
     color: rgba(255, 255, 255, 0.5);
      margin: 0px; 
+
+}
+
+.answer-author {
+     float: right; 
+    text-align: right;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+     margin: 0px; 
+}
+
+#question-date {
+    text-align: left;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0px;
+     padding-top: 3px; 
+}
+
+.answer-date {
+    /* float: left;  */
+    text-align: left;
+    font-size: 9px;
+    /* color: rgba(0, 0, 0, 0.5); */
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0px;
+     padding-top: 5px; 
 }
 
 /* =================================== POSTS =================================== */
