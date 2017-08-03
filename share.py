@@ -30,23 +30,17 @@ class ShareHandler(webapp2.RequestHandler):
 
         key = self.request.get("key")
         logging.info(key)
+        template = jinja_environment.get_template('templates/share.html')
         if key:
             logging.info("Getting the code...")
             code = Code.get_by_id(int(key))
             dshared = code.to_dict()
             shared = dshared['content']
             logging.info(dshared['content'])
-            # self.response.out.write(code.to_dict())
-            """
-            code_file = Code.get_by_id(code_id)
-            if key:
-                logging.info("code is valid!!!")
-            """
+            self.response.out.write(template.render(shared=shared))            
         else:
-            pass
-        template = jinja_environment.get_template('templates/share.html')
-        self.response.out.write(template.render(shared=shared))
-        logging.info(shared)
+            self.response.out.write(template.render())
+
         
     def post(self):    
         logging.info("got some code")
