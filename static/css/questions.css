@@ -93,12 +93,14 @@ body {
 
 #overlay-content {
     color: white;
+    margin-bottom: 0px;
 }
 
 #answer-content {
     color: white;
     padding: 1%;
-    /* margin-top: 0; */
+     margin-bottom: 0px; 
+     padding-bottom: 0px;
     /* padding-top: 1%; */
 }
 
