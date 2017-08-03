@@ -30,7 +30,7 @@ class Question(ndb.Model):
     question = ndb.StringProperty()     # the question
     content = ndb.StringProperty()      # text
     # media = ndb.BlobProperty()          # Images
-    # date = ndb.DateProperty()           # Date posted
+    # date = ndb.DateTimeProperty()           # Date posted
     # votes = ndb.IntegerProperty()       
     answers = ndb.KeyProperty(repeated=True)
 
@@ -40,7 +40,7 @@ class Answer(ndb.Model):
     # author_key = ndb.KeyProperty()      # (user model).key()
     content = ndb.StringProperty()      # text
     # media = ndb.BlobProperty()          # Images
-    # date = ndb.DateProperty()           # Date posted
+    # date = ndb.DateTimeProperty()           # Date posted
     # votes = ndb.IntegerProperty()       
     # question = ndb.KeyProperty()
     question_id = ndb.StringProperty()   # Store using ID

@@ -1,8 +1,8 @@
 <h2>Recent Questions:</h2>
-<script src="/res/js/questions.js"></script>
 {% for question in questions %}
-    <!--  Make clickable, and fire a jQuery event that sends a get request with the current id  -->
-    <div class="question" id="{{question.id}}">
-        <p><span class="q">Q:</span> {{ question.question }}</p>
-    </div>
+<!--  Make clickable, and fire a jQuery event that sends a get request with the current id  -->
+<div class="question" id="{{question.id}}">
+    <h1 class="question-list-text"><span class="q">Q:</span> {{ question.question }}</h1>
+    <p class="question-list-author">{{ question.author_nickname }}</p>
+</div>
 {% endfor %}
