@@ -21,7 +21,11 @@
 
     </div>
     <div id="answer-creation">
+        {% if logged_in %}
         <textarea id="new-answer" class="not-redirectable"></textarea>
+        {% else %}
+        <textarea id="new-answer" class="not-redirectable" readonly>Log in to post an answer!!</textarea>
+        {% endif %}
         <br>
         <input type="button" id="submit-answer" value="Submit" class="not-redirectable">
     </div>

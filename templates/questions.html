@@ -36,16 +36,16 @@
             <div id="questionsarea">
 
                 <div class ="visiblequestion">
-                    <span class ="recent">
-                        <script>
-                            
-                        </script>
-                    </span>
+                    <span class ="recent"></span>
                     
                     <span class="yours">
                         <div class = "ask">
                         <img src="/res/img/fsm3d.gif" height='100px' width='100px'>
+                        {% if logged_in %}
                         <p>Ask a Question</p>
+                        {% else %}
+                        <p>Question? Log in!</p>
+                        {% endif%}
                         <!--#<label for="question">Question: <input type="text" name="question" /></label> -->
                         </div>
                          <h2 id="your-question-h2">Your Questions:</h2>
