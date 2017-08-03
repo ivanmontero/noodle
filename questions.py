@@ -185,6 +185,7 @@ class GetQuestionHTMLHandler(webapp2.RequestHandler):
                 answer["date"] = answer["date"].strftime("%Y-%m-%d %H:%M")
                 logging.info(answer)
             data["question_id"] = question_id
+            data["logged_in"] = True if users.get_current_user() else False
             logging.info(data["answers"])
             template = jinja_environment.get_template('templates/questions-post-overlay.html')
             self.response.out.write(template.render(data))

@@ -4,3 +4,21 @@ body {
     margin: 0;
     /* display: block; */
 }
+
+#wiki {
+    top: 5%;
+    height: 95%;
+    width: 100%;
+}
+
+#wiki-nav {
+    height: 100%;
+    width: 20%;
+    float: left;
+}
+
+#wiki-content {
+    height: 100%;
+    width: 80%;
+    float: right;
+}
