@@ -106,6 +106,10 @@ $(document).ready(function() {
     //         return window.innerHeight - $(this).offset().top;
     //     });
     // });
+
+    $.ajax("/questions/getquestionshtml").then(function(result) {
+        $(".recent").html(result);
+    });  
 });
 
 // function submitQuestion() {

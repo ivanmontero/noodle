@@ -30,7 +30,7 @@ class Question(ndb.Model):
     question = ndb.StringProperty()     # the question
     content = ndb.StringProperty()      # text
     # media = ndb.BlobProperty()          # Images
-    # date = ndb.DateTimeProperty()           # Date posted
+    date = ndb.DateTimeProperty()           # Date posted
     # votes = ndb.IntegerProperty()       
     answers = ndb.KeyProperty(repeated=True)
 
@@ -40,7 +40,7 @@ class Answer(ndb.Model):
     # author_key = ndb.KeyProperty()      # (user model).key()
     content = ndb.StringProperty()      # text
     # media = ndb.BlobProperty()          # Images
-    # date = ndb.DateTimeProperty()           # Date posted
+    date = ndb.DateTimeProperty()           # Date posted
     # votes = ndb.IntegerProperty()       
     # question = ndb.KeyProperty()
     question_id = ndb.StringProperty()   # Store using ID
@@ -58,7 +58,7 @@ def formatRetrievableQuestions(questions):
 
 class QuestionHandler(webapp2.RequestHandler):
     def get(self):
-        logging.info()
+        # logging.info(datetime.datetime.now())
         # TO RETRIEVE QUESTION MODEL ASSOCIATED WITH QUESTION DIV:
         # logging.info(Question.get_by_id(5348024557502464).to_dict())
         user = users.get_current_user()
@@ -71,6 +71,7 @@ class QuestionHandler(webapp2.RequestHandler):
             data["logout_url"] = users.create_logout_url('/questions')
             data["user_nickname"] = user.nickname()
             data["user_id"] = user.user_id()
+            data["yourquestions"] = formatRetrievableQuestions(Question.query(Question.author_id==user.user_id()).order(-Question.date).fetch())
         else:
             data["login_url"] = users.create_login_url('/questions')
         # Test data
@@ -82,17 +83,17 @@ class QuestionHandler(webapp2.RequestHandler):
         #                 {'name': 'Ivan', 'question': 'Vestibulum in nunc ligula. Suspendisse tincidunt metus eget dui tincidunt ultricies. Etiam pellentesque porttitor dolor, cursus ultrices velit pulvinar vitae?'},
         #                 {'name': 'Ivan', 'question': 'Sed fringilla eget lorem sed euismod. Morbi pharetra molestie viverra. Nulla vel dapibus magna, et dignissim neque. Phasellus vel lacus sodales, tempor nulla vel, aliquam urna. Phasellus ac ipsum et velit rutrum imperdiet sit amet quis velit. Nam malesuada justo massa, in tincidunt enim lobortis in?'},
         #                 {'name': 'Ivan', 'question': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis pulvinar felis. Suspendisse potenti. Cras nibh urna, vehicula at commodo ac, imperdiet quis erat?'}]
-        data["yourquestions"]=[{'name': 'Jenessa', 'question': 'Praesent velit neque, semper at nulla nec, elementum egestas dolor. Curabitur luctus magna mi, id efficitur nisl rhoncus eget?'},
-                        {'name': 'Jenessa', 'question': 'Yes it does!'},
-                        {'name': 'Jenessa', 'question': 'Aenean aliquet lectus eu sollicitudin facilisis. Integer purus lorem, sodales vitae egestas vel, auctor et lacus?'},
-                        {'name': 'Jenessa', 'question': 'Etiam quam urna, fermentum in dictum ut, auctor eu ligula?'},
-                        {'name': 'Jenessa', 'question': 'Nam at nulla non leo sagittis tempor. Phasellus orci risus, suscipit id vulputate eget, consectetur blandit velit?'}]
+        # data["yourquestions"]=[{'name': 'Jenessa', 'question': 'Praesent velit neque, semper at nulla nec, elementum egestas dolor. Curabitur luctus magna mi, id efficitur nisl rhoncus eget?'},
+        #                 {'name': 'Jenessa', 'question': 'Yes it does!'},
+        #                 {'name': 'Jenessa', 'question': 'Aenean aliquet lectus eu sollicitudin facilisis. Integer purus lorem, sodales vitae egestas vel, auctor et lacus?'},
+        #                 {'name': 'Jenessa', 'question': 'Etiam quam urna, fermentum in dictum ut, auctor eu ligula?'},
+        #                 {'name': 'Jenessa', 'question': 'Nam at nulla non leo sagittis tempor. Phasellus orci risus, suscipit id vulputate eget, consectetur blandit velit?'}]
         template = jinja_environment.get_template('templates/questions.html')
         self.response.out.write(template.render(data))
     
 class CreateQuestionHTMLHandler(webapp2.RequestHandler):
     def get(self):
-        logging.info("CREATE question called!")
+        logging.info("CREATE question html called!")
         # Test if user is logged in. Redirect to login if not logged in
         template = jinja_environment.get_template('templates/questions-new-overlay.html')
         self.response.out.write(template.render())
@@ -120,7 +121,7 @@ class NewQuestionHandler(webapp2.RequestHandler):
             # Test for valid input
             if question and content:
                 question_key = Question(author_id=user_model.user_id, author_nickname=user_model.nickname,
-                    question=question, content=content).put()
+                    question=question, content=content, date=datetime.datetime.now()).put()
                 user_model.questions.append(question_key)
                 logging.info("New question created!")
                 user_model.put()
@@ -137,7 +138,8 @@ class NewQuestionHandler(webapp2.RequestHandler):
 class GetQuestionsHTMLHandler(webapp2.RequestHandler):
     def get(self):
         logging.info("GET questions HTML recieved!")
-        questions = Question.query().fetch()
+        # questions = Question.query().fetch()
+        questions = Question.query().order(-Question.date).fetch()   #WITH DATE ORDERING
         # result = [i.to_dict() for i in Question.query().fetch()]
         # Remove all attached answer keys so an error isn't thrown
         # dres["id"] = i.key.id()
@@ -145,6 +147,7 @@ class GetQuestionsHTMLHandler(webapp2.RequestHandler):
         for i in questions:
             dres = i.to_dict()
             dres["id"] = i.key.id()
+            dres["date"] = dres["date"].strftime("%Y-%m-%d %H:%M")
             result.append(dres)
         for i in result:
             del i["answers"]
@@ -170,12 +173,17 @@ class GetQuestionHTMLHandler(webapp2.RequestHandler):
         if question:
             logging.info("question id is valid")
             data = question.to_dict()
+            data["date"] = data["date"].strftime("%Y-%m-%d %H:%M")
             # answers = data["answers"]
             # danswers = []
             # for answer in answers:
             #     answer.get().to_dict()
             # # Not sure if answers should have their own ID's
             data["answers"] = [i.get().to_dict() for i in data["answers"]]
+            for answer in data["answers"]:
+                logging.info(answer)
+                answer["date"] = answer["date"].strftime("%Y-%m-%d %H:%M")
+                logging.info(answer)
             data["question_id"] = question_id
             logging.info(data["answers"])
             template = jinja_environment.get_template('templates/questions-post-overlay.html')
@@ -201,7 +209,7 @@ class NewAnswerHandler(webapp2.RequestHandler):
             question = Question.get_by_id(int(question_id))
             if question and content:
                 answer_key = Answer(author_id=user_model.user_id, author_nickname=user_model.nickname,
-                    question_id=question_id, content=content).put()
+                    question_id=question_id, content=content, date=datetime.datetime.now()).put()
                 logging.info("New answer created!")
                 question.answers.append(answer_key)
                 question.put()
