@@ -110,6 +110,11 @@ $(document).ready(function() {
     $.ajax("/questions/getquestionshtml").then(function(result) {
         $(".recent").html(result);
     });  
+
+     $("#start").click(function(){
+        $("#share-main-menu").css("display", "none");
+        $("#forum").css("display", "block");
+    })
 });
 
 // function submitQuestion() {

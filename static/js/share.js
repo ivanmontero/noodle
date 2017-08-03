@@ -11,4 +11,9 @@
             }
         });
     });
+
+    $("#start").click(function(){
+        $("#share-main-menu").css("display", "none");
+        $("#code-share-hide").css("display", "block");
+    })
 });
