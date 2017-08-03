@@ -41,7 +41,8 @@
                         {% for question in questions %}
                         <!--  Make clickable, and fire a jQuery event that sends a get request with the current id  -->
                         <div class="question" id="{{question.id}}">
-                            <p><span class="q">Q:</span> {{ question.question }}</p>
+                            <h1 class="question-list-text"><span class="q">Q:</span> {{ question.question }}</h1>
+                            <p class="question-list-author">{{ question.author_nickname }}</p>
                         </div>
                         {% endfor %}
                     </span>

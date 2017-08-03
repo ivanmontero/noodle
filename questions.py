@@ -148,7 +148,7 @@ class GetQuestionsHTMLHandler(webapp2.RequestHandler):
         for i in result:
             del i["answers"]
             del i["author_id"]
-            del i["author_nickname"]
+            # del i["author_nickname"]
         template = jinja_environment.get_template('templates/questions-posts.html')
         self.response.out.write(template.render(questions=result))
         
@@ -175,6 +175,7 @@ class GetQuestionHTMLHandler(webapp2.RequestHandler):
             #     answer.get().to_dict()
             # # Not sure if answers should have their own ID's
             data["answers"] = [i.get().to_dict() for i in data["answers"]]
+            data["question_id"] = question_id
             logging.info(data["answers"])
             template = jinja_environment.get_template('templates/questions-post-overlay.html')
             self.response.out.write(template.render(data))
