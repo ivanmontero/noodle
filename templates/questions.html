@@ -31,35 +31,63 @@
         </div>
         <!-- =============================== NAVIGATION =============================== -->
          <!-- <hr>  -->
-        <div id="overlay"></div>
-        <div class="box">
-            <div id="questionsarea">
+        <div id="forum">
+            <div id="overlay"></div>
+            <div class="box">
+                <div id="questionsarea">
 
-                <div class ="visiblequestion">
-                    <span class ="recent"></span>
-                    
-                    <span class="yours">
-                        <div class = "ask">
-                        <img src="/res/img/fsm3d.gif" height='100px' width='100px'>
-                        {% if logged_in %}
-                        <p>Ask a Question</p>
-                        {% else %}
-                        <p>Question? Log in!</p>
-                        {% endif%}
-                        <!--#<label for="question">Question: <input type="text" name="question" /></label> -->
-                        </div>
-                         <h2 id="your-question-h2">Your Questions:</h2>
-                        <div class ="container">
-                            
-                            {% for question in yourquestions %}
-                            <div class = "yourquestion">
-                                <p class="question-text">{{ question.question }}</p>
+                    <div class ="visiblequestion">
+                        <span class ="recent"></span>
+                        
+                        <span class="yours">
+                            <div class = "ask">
+                            <img src="/res/img/fsm3d.gif" height='100px' width='100px'>
+                            {% if logged_in %}
+                            <p>Ask a Question</p>
+                            {% else %}
+                            <p>Question? Log in!</p>
+                            {% endif%}
+                            <!--#<label for="question">Question: <input type="text" name="question" /></label> -->
                             </div>
-                            {% endfor %}
-                        </div>
-                    </span>
+                            <h2 id="your-question-h2">Your Questions:</h2>
+                            <div class ="container">
+                                
+                                {% for question in yourquestions %}
+                                <div class = "yourquestion">
+                                    <p class="question-text">{{ question.question }}</p>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- FORUM PAGE -->
+        <div class="background-box">
+                <div id="share-main-menu">
+                    <div class="background-img">
+                        <br/>
+                        <br/>
+                        <br/>
+                        <div id="share-intro">
+                            <div id="intro-title">
+                                <p>Welcome to Noodle's Forum</p>
+                            <div id="intro-content">
+                                <p>Noodle allows users to learn more about coding by utilizing the experience and 
+                                    expertise of others. Sign in to use Noodle Forums.
+                                    <br/>Leave your questions, answer others, become smarter.
+                                </p>
+                            </div>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div id="start-button">
+                            <input type="button" id="start" value="Get Started">
+                        </div>
+                    </div>
+                </div>
+            </div>
     </body>
 </html>

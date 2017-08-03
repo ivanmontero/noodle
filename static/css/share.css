@@ -134,6 +134,7 @@ p {
 }
 
 #intro-content p{
+    font-size: 20px;
     text-align: center;
     float: center;
     display: block;
@@ -157,6 +158,3 @@ p {
     background-color:rgba(0, 0, 0, 0.05);
 }
 
-#info-button {
-    position: relative;
-}

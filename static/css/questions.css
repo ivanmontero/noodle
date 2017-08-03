@@ -335,3 +335,69 @@ hr {
 }
 
 /* =================================== POSTS =================================== */
+
+.background-img {
+    background-image: url("/res/img/ocean.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 80%;
+    z-index: -1;
+}
+
+#start-button {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    top: 0;
+    z-index: 1;
+}
+
+#intro-title {
+    color: white;
+    font-weight: bolder;
+    font-size: 32px;
+    margin: 0;
+    padding: 0;
+}
+
+#share-intro {
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 12%;
+    float: center;
+    position: center;
+    text-align: center;
+    padding: 0;
+}
+
+#intro-content p{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    float: center;
+    display: block;
+}
+
+#intro-content {
+    text-align: center;
+    float: center;
+    display: block;
+}
+
+#share-main-menu {
+    display: block;
+}
+
+#forum {
+    display: none;
+}
+
+.background-box {
+    background-color:rgba(0, 0, 0, 0.05);
+}
+
+
+
+/* MAIN MENU */

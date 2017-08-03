@@ -23,6 +23,11 @@ $(document).ready(function() {
             $(this).get(0).selectionEnd = start + 1;
         }
     });
+
+    $("#start").click(function(){
+        $("#main-editor").css("display", "none");
+        $("#editor").css("display", "block");
+    })
 });
 
 // TODO: Format better
