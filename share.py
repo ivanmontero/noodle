@@ -27,19 +27,27 @@ class ShareHandler(webapp2.RequestHandler):
             data["user_id"] = user.user_id()
         else:
             data["login_url"] = users.create_login_url('/share')
-            
-        key = self.request.get("key")
-        if key:
-            self.response.out.write(key)
-            logging.info("retrieving")
-            file = Code.query().get_by_id(key)
-            logging.info(file)
-            self.response.out.write(jscon.dumps(file=file))
-        else:
-            template = jinja_environment.get_template('templates/share.html')
-            self.response.out.write(template.render(data))
-        
 
+        key = self.request.get("key")
+        logging.info(key)
+        if key:
+            logging.info("Getting the code...")
+            code = Code.get_by_id(int(key))
+            dshared = code.to_dict()
+            shared = dshared['content']
+            logging.info(dshared['content'])
+            # self.response.out.write(code.to_dict())
+            """
+            code_file = Code.get_by_id(code_id)
+            if key:
+                logging.info("code is valid!!!")
+            """
+        else:
+            pass
+        template = jinja_environment.get_template('templates/share.html')
+        self.response.out.write(template.render(shared=shared))
+        logging.info(shared)
+        
     def post(self):    
         logging.info("got some code")
         code = self.request.get("code")
@@ -50,6 +58,7 @@ class ShareHandler(webapp2.RequestHandler):
             unique_id = content_key.id()
             logging.info(unique_id)
             logging.info("id = " + str(unique_id))
+            template = jinja_environment.get_template('templates/share.html')
             self.response.write(unique_id)
     
 class Code(ndb.Model):

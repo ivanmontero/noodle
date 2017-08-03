@@ -1,6 +1,5 @@
  $(document).ready( function() {
     $("#submit").click(function(){
-        console.log("jdaslfhusdahlfjkhdsakfhasdkjhflkahsdlkjfhjaksd");
         $.post({
             url: "/share",
             data: {
