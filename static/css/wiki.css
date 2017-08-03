@@ -12,13 +12,53 @@ body {
 }
 
 #wiki-nav {
+    background-color:#2F9599;
     height: 100%;
-    width: 20%;
+    width: 15%;
     float: left;
 }
 
 #wiki-content {
+    display: table;
     height: 100%;
-    width: 80%;
+    width: 85%;
     float: right;
+}
+
+#sort-container-outside {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#sort-container {
+    margin: 0 auto;
+    width: 95%;
+    height: 80%;
+    /* background-color: black; */
+}
+
+#code {
+    width: 50%;
+    height: auto;
+    float: left;
+}
+
+#vis {
+    width: 50%;
+    height: 100%;
+    float: right;
+}
+
+.tab1 {
+    padding-left: 10px;
+}
+.tab2 {
+    padding-left: 20px;
+}
+.tab3 {
+    padding-left: 30px;
+}
+
+.sort-code {
+    font-size: 15px;
 }

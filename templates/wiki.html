@@ -5,6 +5,9 @@
         <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
         <link rel="stylesheet" href="/res/css/wiki.css"> 
          <link rel="stylesheet" href="/res/css/nav.css"> 
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+         <script src="/res/js/wiki.js"></script>
          <script src="/res/js/nav.js"></script>
     </head>
     <body>
@@ -34,7 +37,26 @@
 
             </span>
             <span id="wiki-content">
-                
+                <div id="sort-container-outside">
+                    <div id="sort-container">
+                        <div id="code">
+<code class="sort-code ">function insertionSort(array) {</code><br>
+<code class="sort-code tab1" id="code1">for(var i = 0; i < array.length; i++) {</code><br>
+<code class="sort-code tab2" id="code2">var temp = array[i];</code><br>
+<code class="sort-code tab2" id="code3">var j = i - 1;</code><br>
+<code class="sort-code tab2" id="code4">while (j >= 0 && array[j] > temp) {</code><br>
+<code class="sort-code tab3" id="code5">array[j + 1] = array[j];</code><br>
+<code class="sort-code tab3" id="code6">j--;</code><br>
+<code class="sort-code tab2" id="code6">}</code><br>
+<code class="sort-code tab2" id="code7">array[j + 1] = temp;</code><br>
+<code class="sort-code tab1" id="code7">}</code><br>
+<code class="sort-code tab1" id="code">return array;</code><br>
+<code class="sort-code ">}              </code><br>
+                        </div>
+                        <div id="vis">
+                        </div>
+                    </div>
+                </div>
             </span>
         </div>
     </body>
