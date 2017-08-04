@@ -5,9 +5,10 @@ var bars = 15;
 var nums = [];
 var totalLength;
 var cline = 1;   // -1 means done
-var i = 1, j = 0;
+var i = 0, j = 0;
 var temp;
 var speed = 5;
+var times = 1;
 
 function setup() {
     var canvas = createCanvas($("#vis").width(), $("#vis").height());
@@ -23,8 +24,16 @@ function setup() {
 
 function update() {
     $(".sort-code").css("background-color", "#FFFFFF");
-    console.log("refresh " + cline);
+    console.log("line " + cline);
     switch(cline){
+        case -1:
+            if(times < 2) {
+                i = 0;
+                j = 0;
+                cline = 1;
+                times++;
+            }
+            break;
         case 1: // Simulate for loop
             console.log("1 Entered");
             if( i < nums.length) {
@@ -74,7 +83,7 @@ function update() {
         case 7:
             nums[j + 1] = temp;
 
-            temp = 0;
+            temp = null;
             i++;
             cline = 1;
             $("#code7").css("background-color", "#FFFF00");
@@ -126,7 +135,7 @@ function draw() {
         var barHeight = maxHeight * (nums[x] / bars);
         if(x == i) fill(255, 0, 255);
         if(x == j) fill(0, 0, 255);
-        if(i == -1) fill(0, 255, 0);
+        // if(i == -1) fill(0, 255, 0);
         if(nums[x] == x + 1) fill(0, 255, 0);
         if(cline == 6 && x == j + 1) fill(0, 0, 255);
         // var col = 255 * (nums[i] / bars);
@@ -145,12 +154,13 @@ function draw() {
         fill(255,0,0);
         rect(width/2 - barWidth/2, 0, barWidth, barHeight);
     }
+    textSize(20);
     fill(255,0,255);
     text("i = " + i, 0, height - height/20);
     fill(255,0,0);
     text("temp = " + temp, width/3, height - height/20);
     fill(0,0,255);
-    text("j = " + temp, (2*width)/3, height - height/20);
+    text("j = " + j, (2*width)/3, height - height/20);
     frameRate(speed);
 }
 
@@ -198,6 +208,6 @@ function reset(b) {
     shuffle(nums, true);
 
     cline = 1;   // -1 means done
-    i = 1;
+    i = 0;
     j = 0;
 }
