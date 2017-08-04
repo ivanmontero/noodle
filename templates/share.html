@@ -9,6 +9,17 @@
         <script src="/res/js/share.js"></script>
         <script src="codemirror-5.28.0/mode/javascript/javascript.js"></script>
         <script src="codemirror-5.28.0/lib/codemirror.js"></script>
+        {% if logged_in %}
+            <style>
+                #share-main-menu {
+                    display: none;
+                }
+
+                #code-share-hide {
+                    display: block;
+                }
+            </style>
+        {% endif %}
     </head>
     <body>
         <!--=============================== NAVIGATION =============================== -->

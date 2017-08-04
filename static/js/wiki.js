@@ -8,7 +8,7 @@ var cline = 1;   // -1 means done
 var i = 0, j = 0;
 var temp;
 var speed = 5;
-var times = 1;
+// var times = 1;
 
 function setup() {
     var canvas = createCanvas($("#vis").width(), $("#vis").height());
@@ -27,11 +27,12 @@ function update() {
     console.log("line " + cline);
     switch(cline){
         case -1:
-            if(times < 2) { // Twice to ensure sorted
+            // if(times < 2) { // Twice to ensure sorted
+            if(!isSorted(nums)) {
                 i = 0;
                 j = 0;
                 cline = 1;
-                times++;
+                // times++;
             }
             break;
         case 1: // Simulate for loop
@@ -210,6 +211,13 @@ function reset(b) {
     cline = 1;   // -1 means done
     i = 0;
     j = 0;
+}
+
+function isSorted(arr) {
+    for(var x = 0; x < arr.length; x++)
+        if(nums[x] != x + 1)
+            return false;
+    return true;
 }
 
 $(document).ready(function() {
