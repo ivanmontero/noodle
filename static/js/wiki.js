@@ -1,28 +1,28 @@
 
 // P5.js
 
-var bars = 20;
+var bars = 15;
 var nums = [];
-// KEY: height. VALUE: if sorted pos.
-var sorted = {};
 var totalLength;
 var cline = 1;   // -1 means done
 var i = 1, j = 0;
 var temp;
+var speed = 5;
 
 function setup() {
     var canvas = createCanvas($("#vis").width(), $("#vis").height());
     canvas.parent("vis");
     for(var i = 1; i <= bars; i++) {
         nums.push(i);
-        sorted[i] = false;
     }
 
     shuffle(nums, true);
-    totalLength = width - width/5;
+    // totalLength = width - width/5;
+    totalLength = width - 4;
 }
 
 function update() {
+    $(".sort-code").css("background-color", "#FFFFFF");
     console.log("refresh " + cline);
     switch(cline){
         case 1: // Simulate for loop
@@ -34,6 +34,7 @@ function update() {
                 i = -1;
                 cline=-1;
             }
+            $("#code1").css("background-color", "#FFFF00");
             break;
         case 2:
         // Sets the temp variable.
@@ -41,11 +42,13 @@ function update() {
             nums[i] = 0;
 
             cline++;
+            $("#code2").css("background-color", "#FFFF00");
             break;
         case 3:
             j = i - 1;
 
             cline++;
+            $("#code3").css("background-color", "#FFFF00");
             break;
         case 4:
             if( j >= 0 && nums[j] > temp) {
@@ -53,17 +56,20 @@ function update() {
             } else {
                 cline = 7;
             }
+            $("#code4").css("background-color", "#FFFF00");
             break;
         case 5:
             nums[j + 1] = nums[j];
             nums[j] = 0;
 
             cline++;
+            $("#code5").css("background-color", "#FFFF00");
             break;
         case 6:
             j--;
 
             cline = 4;
+            $("#code6").css("background-color", "#FFFF00");
             break;
         case 7:
             nums[j + 1] = temp;
@@ -71,6 +77,7 @@ function update() {
             temp = 0;
             i++;
             cline = 1;
+            $("#code7").css("background-color", "#FFFF00");
             break;
     }
     // Line 1
@@ -91,8 +98,8 @@ function update() {
     // }
 
     // Code highlighting
-    $(".sort-code").css("background-color", "#FFFFFF");
-    $("code" + cline).css("background-color", "#FFFF00");
+
+    
 }
 
 function draw() {
@@ -140,7 +147,7 @@ function draw() {
     text("temp = " + temp, width/3, height - height/20);
     fill(0,0,255);
     text("j = " + temp, (2*width)/3, height - height/20);
-    frameRate(5);
+    frameRate(speed);
 }
 
 function insertionSort(array) {
@@ -163,3 +170,12 @@ function insertionSort(array) {
 //         [a[i - 1], a[j]] = [a[j], a[i - 1]];
 //     }
 // }
+
+function reset() {
+    shuffle(nums, true);
+    totalLength = width - width/5;
+
+    cline = 1;   // -1 means done
+    i = 1;
+    j = 0;
+}
