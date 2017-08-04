@@ -27,7 +27,7 @@ function update() {
     console.log("line " + cline);
     switch(cline){
         case -1:
-            if(times < 2) {
+            if(times < 2) { // Twice to ensure sorted
                 i = 0;
                 j = 0;
                 cline = 1;
@@ -185,18 +185,18 @@ function draw() {
 //     }
 // }
 
-function reset() {
-    nums = [];
-    for(var i = 1; i <= bars; i++) {
-        nums.push(i);
-    }
+// function reset() {
+//     nums = [];
+//     for(var i = 1; i <= bars; i++) {
+//         nums.push(i);
+//     }
 
-    shuffle(nums, true);
+//     shuffle(nums, true);
 
-    cline = 1;   // -1 means done
-    i = 1;
-    j = 0;
-}
+//     cline = 1;   // -1 means done
+//     i = 0;
+//     j = 0;
+// }
 
 function reset(b) {
     bars = b;
@@ -224,4 +224,8 @@ $(document).ready(function() {
         speed = int(nSpeed);
         // reset();
     });
+    $("#reset").click(function() {
+        reset(bars);
+    })
+
 });
