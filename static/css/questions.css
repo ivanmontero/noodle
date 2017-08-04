@@ -354,6 +354,7 @@ hr {
 }
 
 #intro-title {
+    font-family: sans-serif;
     color: white;
     font-weight: bolder;
     font-size: 32px;
@@ -373,6 +374,7 @@ hr {
 }
 
 #intro-content p{
+    font-family: sans-serif;
     color: white;
     font-size: 20px;
     text-align: center;
