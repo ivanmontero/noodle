@@ -51,6 +51,10 @@ body {
     width: 100%;
 }
 
+.bio {
+    width: 50%;
+}
+
 /* NAVIGATION */
 #navigation {
     position: relative;
