@@ -211,3 +211,17 @@ function reset(b) {
     i = 0;
     j = 0;
 }
+
+$(document).ready(function() {
+    $("#bar-number").on("input", function() {
+        var nBar = $("#bar-number").val();
+        $("#bars-value").text(nBar);
+        reset(nBar);
+    });
+    $("#speed").on("input", function() {
+        var nSpeed = $("#speed").val();
+        $("#speed-value").text(nSpeed);
+        speed = int(nSpeed);
+        // reset();
+    });
+});

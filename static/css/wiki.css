@@ -63,3 +63,21 @@ body {
 .sort-code {
     font-size: 15px;
 }
+
+#input-bars {
+    width: 100%;
+    text-align: center;
+}
+
+#input-speed {
+    width: 100%;
+    text-align: center;
+}
+
+#bar-number {
+    width: 100%;
+}
+
+#speed {
+    width: 100%;
+}
