@@ -6,6 +6,17 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="/res/js/questions.js"></script>
         <script src="/res/js/nav.js"></script>
+        {% if logged_in %}
+            <style>
+                #share-main-menu {
+                    display: none;
+                }
+
+                #forum {
+                    display: block;
+                }
+            </style>
+        {% endif %}
     </head>
     <body>
         
@@ -31,6 +42,7 @@
         </div>
         <!-- =============================== NAVIGATION =============================== -->
          <!-- <hr>  -->
+        <div id="code-share-hide">
         <div id="forum">
             <div id="overlay"></div>
             <div class="box">
