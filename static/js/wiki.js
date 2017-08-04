@@ -124,12 +124,15 @@ function draw() {
     fill(255,255,255);
     for(var x = 0; x < nums.length; x++) {
         var barHeight = maxHeight * (nums[x] / bars);
-        if(x == i) fill(0, 255, 0);
+        if(x == i) fill(255, 0, 255);
         if(x == j) fill(0, 0, 255);
+        if(i == -1) fill(0, 255, 0);
+        if(nums[x] == x + 1) fill(0, 255, 0);
         // var col = 255 * (nums[i] / bars);
         // fill(col, col, col);
         rect(initSpace + x * barWidth, height - spaceFromBottom - barHeight, barWidth, barHeight);
-        if(x == i || x == j) noFill();
+        // if(x == i || x == j) noFill();
+        fill(255,255,255);
     }
     if(temp) {
         console.log("this works");
@@ -141,7 +144,7 @@ function draw() {
         fill(255,0,0);
         rect(width/2 - barWidth/2, 0, barWidth, barHeight);
     }
-    fill(0,255,0);
+    fill(255,0,255);
     text("i = " + i, 0, height - height/20);
     fill(255,0,0);
     text("temp = " + temp, width/3, height - height/20);
@@ -150,18 +153,18 @@ function draw() {
     frameRate(speed);
 }
 
-function insertionSort(array) {
-  for(var i = 0; i < array.length; i++) {
-    var temp = array[i];
-    var j = i - 1;
-    while (j >= 0 && array[j] > temp) {
-      array[j + 1] = array[j];
-      j--;
-    }
-    array[j + 1] = temp;
-  }
-  return array;
-}
+// function insertionSort(array) {
+//   for(var i = 0; i < array.length; i++) {
+//     var temp = array[i];
+//     var j = i - 1;
+//     while (j >= 0 && array[j] > temp) {
+//       array[j + 1] = array[j];
+//       j--;
+//     }
+//     array[j + 1] = temp;
+//   }
+//   return array;
+// }
 
 // // Function got off the internet
 // function shuffle(a) {
@@ -172,8 +175,26 @@ function insertionSort(array) {
 // }
 
 function reset() {
+    nums = [];
+    for(var i = 1; i <= bars; i++) {
+        nums.push(i);
+    }
+
     shuffle(nums, true);
-    totalLength = width - width/5;
+
+    cline = 1;   // -1 means done
+    i = 1;
+    j = 0;
+}
+
+function reset(b) {
+    bars = b;
+    nums = [];
+    for(var i = 1; i <= bars; i++) {
+        nums.push(i);
+    }
+
+    shuffle(nums, true);
 
     cline = 1;   // -1 means done
     i = 1;
