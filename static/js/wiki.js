@@ -128,6 +128,7 @@ function draw() {
         if(x == j) fill(0, 0, 255);
         if(i == -1) fill(0, 255, 0);
         if(nums[x] == x + 1) fill(0, 255, 0);
+        if(cline == 6 && x == j + 1) fill(0, 0, 255);
         // var col = 255 * (nums[i] / bars);
         // fill(col, col, col);
         rect(initSpace + x * barWidth, height - spaceFromBottom - barHeight, barWidth, barHeight);
